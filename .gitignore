@@ -1,0 +1,58 @@
+# =================================================================
+# .gitignore — Shibuya After the Last Train
+# =================================================================
+# Goal: only ship the static site + curated, web-safe assets.
+# Everything below is NEVER pushed to GitHub.
+
+# --- High-res originals (heavy, private metadata) ---
+assets/photos/raw/
+assets/videos/raw/
+
+# --- Privacy: identifiable faces, held back from publication ---
+assets/photos/review_needed/
+assets/videos/review_needed/
+data/_review_needed.json
+
+# --- Internal tooling / backups (not for public) ---
+_backup_*/
+*.bak
+.claude/
+.gitconfig_codex
+.playwright-cli/
+output/
+.vscode/
+.idea/
+data/import_log.json
+
+# --- Secrets ---
+.env
+.env.*
+*.pem
+*.key
+secrets.json
+credentials.json
+
+# --- Node / build artifacts (defensive — none present today) ---
+node_modules/
+dist/
+build/
+.cache/
+.parcel-cache/
+.next/
+
+# --- OS junk ---
+.DS_Store
+Thumbs.db
+ehthumbs.db
+desktop.ini
+$RECYCLE.BIN/
+._*
+
+# --- Editor scratch ---
+*.swp
+*.swo
+*~
+
+# --- Logs / temp ---
+*.log
+tmp/

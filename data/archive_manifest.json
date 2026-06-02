@@ -1,0 +1,560 @@
+{
+  "intro": "ここは、完成された家具ではなく、家具になる前の都市の断片を集めた標本箱である。",
+  "categories": [
+    {
+      "key": "all",
+      "label": "All",
+      "ja": "全て",
+      "related_prototype": null
+    },
+    {
+      "key": "u_fence",
+      "label": "U-Fence",
+      "ja": "U字柵",
+      "related_prototype": "U字柵ハックチェア"
+    },
+    {
+      "key": "pole",
+      "label": "Pole / Bollard",
+      "ja": "車止め・標識柱",
+      "related_prototype": "ポール差し込みテーブル"
+    },
+    {
+      "key": "sign",
+      "label": "Sign / Advertisement",
+      "ja": "看板・広告",
+      "related_prototype": "寄りかかりサイン"
+    },
+    {
+      "key": "equipment",
+      "label": "Equipment Box",
+      "ja": "設備箱",
+      "related_prototype": "ナイトワーカー腰掛け"
+    },
+    {
+      "key": "road_object",
+      "label": "Road Object",
+      "ja": "路上の小物",
+      "related_prototype": "ポール差し込みテーブル / 夜間公共性センサー家具"
+    },
+    {
+      "key": "street_trace",
+      "label": "Street Trace",
+      "ja": "路上の痕跡",
+      "related_prototype": "夜間公共性センサー家具 / 始発待ちベンチ看板"
+    },
+    {
+      "key": "people_stay",
+      "label": "People Staying",
+      "ja": "滞留する身体",
+      "related_prototype": "全プロトタイプ（行為の根拠）"
+    },
+    {
+      "key": "night_worker",
+      "label": "Night Worker",
+      "ja": "夜間労働",
+      "related_prototype": "ナイトワーカー腰掛け"
+    },
+    {
+      "key": "prototype",
+      "label": "Prototype Source",
+      "ja": "原型試行",
+      "related_prototype": "始発待ちベンチ看板 / 寄りかかりサイン"
+    }
+  ],
+  "items": [
+    {
+      "original_file": "2DC2EED9-F8F5-4220-B091-2F7E86EE1A69.jpeg",
+      "copied_file": "assets/photos/selected/u_fence_01.jpg",
+      "archive_category": "u_fence",
+      "title": "壁際に連続するU字柵",
+      "observation": "U字柵は本来、人や自転車の動きを制御する道路設備だが、夜間には寄りかかりや荷物置きの下地として読み替えられる。",
+      "design_translation": "U字柵に差し込む小さな天板や背当てを設計し、短時間の会話や始発待ちを支える都市家具へ変換する。",
+      "related_prototype": "U字柵ハックチェア"
+    },
+    {
+      "original_file": "IMG_3907.JPG",
+      "copied_file": "assets/photos/selected/u_fence_02.jpg",
+      "archive_category": "u_fence",
+      "title": "避難サインを抱えた柵",
+      "observation": "柵に結びつけられた仮設サインは、通行制御と情報掲示が同じ部材に重ねられる都市の即興性を示している。",
+      "design_translation": "柵を単なる境界ではなく、情報、荷物、身体を一時的に受ける差し込み基盤として扱う。",
+      "related_prototype": "U字柵ハックチェア / 寄りかかりサイン"
+    },
+    {
+      "original_file": "IMG_3844.JPG",
+      "copied_file": "assets/photos/selected/u_fence_03.jpg",
+      "archive_category": "u_fence",
+      "title": "小さなバリアと足元の痕跡",
+      "observation": "細いU字柵と足元の置き紙は、都市が禁止や誘導だけでなく、置く、留まる、避ける行為の集積でできていることを示す。",
+      "design_translation": "足元の痕跡を寸法化し、柵の内側に小さな荷物置きや缶置きが成立する余白を設計する。",
+      "related_prototype": "U字柵ハックチェア"
+    },
+    {
+      "original_file": "B5585418-7FC4-4729-A930-A8AE77D83E62.jpeg",
+      "copied_file": "assets/photos/selected/u_fence_04.jpg",
+      "archive_category": "u_fence",
+      "title": "夜の境界としてのガードレール",
+      "observation": "車道と歩道の境界に伸びるガードレールは、終電後には人の寄りかかり面と荷物の仮置き棚を兼ねる。",
+      "design_translation": "ガードレール頂部に差し込む薄い面材を設計し、立位の身体と所持品を同時に受け止める。",
+      "related_prototype": "U字柵ハックチェア"
+    },
+    {
+      "original_file": "IMG_3828.JPG",
+      "copied_file": "assets/photos/selected/archive_u_fence_05.jpg",
+      "archive_category": "u_fence",
+      "title": "歩道側のU字柵列",
+      "observation": "歩道側に並ぶU字柵は、夜には自転車の制御よりも人の小さな縄張りを支える要素として読める。",
+      "design_translation": "柵間隔をモジュール化し、座面・荷物置き・寄りかかりを差し替えられる接続部を設計する。",
+      "related_prototype": "U字柵ハックチェア"
+    },
+    {
+      "original_file": "IMG_3842.JPG",
+      "copied_file": "assets/photos/selected/archive_u_fence_06.jpg",
+      "archive_category": "u_fence",
+      "title": "曲げ加工のU字柵",
+      "observation": "曲げ部に荷物や手が掛けられた痕跡が残る。柵は座面ではないが、身体の一部を確実に受けている。",
+      "design_translation": "曲げ部に外付けする鞍型の小ピースで、寄りかかりと荷物掛けを最小限の介入で成立させる。",
+      "related_prototype": "U字柵ハックチェア"
+    },
+    {
+      "original_file": "9AC5E63B-CED1-4B61-8818-02ADBD6A01CC.jpeg",
+      "copied_file": "assets/photos/selected/pole_01.jpg",
+      "archive_category": "pole",
+      "title": "標識柱の足元に生まれる立ち止まり",
+      "observation": "標識柱は通行者の視線を上へ向けるが、足元には立ち止まりや荷物置きの小さな余白が残る。",
+      "design_translation": "柱に巻き付けるまたは被せる小さな天板を設計し、スマホ、缶、紙袋を置ける立ち止まりの家具にする。",
+      "related_prototype": "ポール差し込みテーブル"
+    },
+    {
+      "original_file": "IMG_3889.JPG",
+      "copied_file": "assets/photos/selected/pole_02.jpg",
+      "archive_category": "pole",
+      "title": "街路の円柱ポール",
+      "observation": "円柱ポールは通行の邪魔をしない細さで街路に残り、夜には人が一瞬身を寄せる垂直の目印になる。",
+      "design_translation": "ポールの径に合わせた脱着式テーブルを設計し、立ったまま休む身体の支点を作る。",
+      "related_prototype": "ポール差し込みテーブル"
+    },
+    {
+      "original_file": "IMG_3903.JPG",
+      "copied_file": "assets/photos/selected/pole_03.jpg",
+      "archive_category": "pole",
+      "title": "固定金具のスケール",
+      "observation": "ポールの根元にはボルト、ベースプレート、汚れが集まり、都市部材が交換可能なパーツとして見えてくる。",
+      "design_translation": "既存固定部に干渉しない高さで、差し込み家具のクランプ位置と逃げ寸法を設定する。",
+      "related_prototype": "ポール差し込みテーブル"
+    },
+    {
+      "original_file": "IMG_3845.JPG",
+      "copied_file": "assets/photos/selected/archive_pole_04.jpg",
+      "archive_category": "pole",
+      "title": "車止めポールの列",
+      "observation": "等間隔に並ぶ車止めは、車を止めるための線でありながら、夜には人が缶や荷物を分散して置く小さな棚列に変わる。",
+      "design_translation": "ポール群を1ユニットとして扱う共通天板を設計し、隣接ポール間を一時的なテーブルとして使えるようにする。",
+      "related_prototype": "ポール差し込みテーブル"
+    },
+    {
+      "original_file": "IMG_3849.JPG",
+      "copied_file": "assets/photos/selected/archive_pole_05.jpg",
+      "archive_category": "pole",
+      "title": "色つきポールと夜光",
+      "observation": "反射素材を持つポールは夜の照明を吸って光り、視覚的なマーカーとして街路に残る。",
+      "design_translation": "差し込みテーブルの縁にも反射エッジを与え、家具自体が夜の都市部材の一員になるようにする。",
+      "related_prototype": "ポール差し込みテーブル"
+    },
+    {
+      "original_file": "10279895-EDBA-478F-9525-8595B896659E.jpeg",
+      "copied_file": "assets/photos/selected/sign_01.jpg",
+      "archive_category": "sign",
+      "title": "貼り重ねられた広告面",
+      "observation": "壁面の広告やステッカーは、都市の表層が上書きされ続けることを示し、昼と夜で異なる読み方を誘発する。",
+      "design_translation": "寄りかかりサインの表面を広告下地として見せ、夜には身体を預ける厚みを持つ面へ切り替える。",
+      "related_prototype": "寄りかかりサイン"
+    },
+    {
+      "original_file": "668C4573-2523-4CD6-823E-F69EAC1672FC.jpeg",
+      "copied_file": "assets/photos/selected/sign_02.jpg",
+      "archive_category": "sign",
+      "title": "案内標識の集積",
+      "observation": "複数の案内サインが一つの柱に積層し、渋谷の情報過多な風景を小さな垂直部材に凝縮している。",
+      "design_translation": "情報の積層に家具機能を紛れ込ませ、昼はサイン、夜は寄りかかりや荷物置きに変わる二重性を作る。",
+      "related_prototype": "寄りかかりサイン"
+    },
+    {
+      "original_file": "IMG_3930.JPG",
+      "copied_file": "assets/photos/selected/sign_03.jpg",
+      "archive_category": "sign",
+      "title": "看板脚部と重し",
+      "observation": "置き看板は砂袋や重しとセットで成立し、広告でありながら足元では小さな道路部材として振る舞う。",
+      "design_translation": "看板脚部の重しを、荷物置きや短い腰掛けに変換し、昼の広告と夜の身体支援を同居させる。",
+      "related_prototype": "始発待ちベンチ看板 / 寄りかかりサイン"
+    },
+    {
+      "original_file": "C13B36CF-D4DE-4B5E-AF3B-575A50732495.jpeg",
+      "copied_file": "assets/photos/selected/sign_04.jpg",
+      "archive_category": "sign",
+      "title": "深夜の案内サインと余白",
+      "observation": "夜の案内サインは情報密度を保ったまま視線を吸い、その背面や脚部に身体を寄せる隙間を残す。",
+      "design_translation": "サインの背面に寄りかかれる厚みを与え、情報と身体を同じ面で同居させる。",
+      "related_prototype": "寄りかかりサイン"
+    },
+    {
+      "original_file": "IMG_3901.JPG",
+      "copied_file": "assets/photos/selected/archive_sign_05.jpg",
+      "archive_category": "sign",
+      "title": "店舗ファサードの看板下地",
+      "observation": "店舗看板の下地は、閉店後にも光と影だけで街路に残り、その面の前で身体は止まりやすい。",
+      "design_translation": "看板下地と一体の薄いベンチ面を設計し、店舗が閉じても夜だけ家具として起動する。",
+      "related_prototype": "始発待ちベンチ看板"
+    },
+    {
+      "original_file": "IMG_3914.JPG",
+      "copied_file": "assets/photos/selected/archive_sign_06.jpg",
+      "archive_category": "sign",
+      "title": "縦長の置き看板",
+      "observation": "歩道の縦長看板は、視線の壁として通行を分節し、その裏側を視線から外れる小さな部屋にする。",
+      "design_translation": "看板の背面側を寄りかかり面として設計し、視線をやり過ごす居場所を提供する。",
+      "related_prototype": "寄りかかりサイン"
+    },
+    {
+      "original_file": "10C43CA1-ED1E-4F11-A0D1-1C0BD0FDD234.jpeg",
+      "copied_file": "assets/photos/selected/equipment_01.jpg",
+      "archive_category": "equipment",
+      "title": "裏側に露出する設備群",
+      "observation": "室外機や配管は都市の裏側として扱われるが、夜にはその無人性が強調され、設備箱としての存在感が増す。",
+      "design_translation": "設備に擬態する箱型家具を設計し、昼は設備の一部、夜は腰掛けや道具置きとして起動させる。",
+      "related_prototype": "ナイトワーカー腰掛け"
+    },
+    {
+      "original_file": "IMG_3898.JPG",
+      "copied_file": "assets/photos/selected/equipment_02.jpg",
+      "archive_category": "equipment",
+      "title": "店舗際の黒い設備箱",
+      "observation": "歩道際の設備箱は、上面や側面が小物置きに転用されやすい高さで街路に現れている。",
+      "design_translation": "ナイトワーカーが短く腰掛けたり道具を置いたりできるよう、設備箱の高さと天板寸法を家具化する。",
+      "related_prototype": "ナイトワーカー腰掛け"
+    },
+    {
+      "original_file": "IMG_3906.JPG",
+      "copied_file": "assets/photos/selected/equipment_03.jpg",
+      "archive_category": "equipment",
+      "title": "仮囲い化した設備面",
+      "observation": "金属パネルの連続は、設備、仮囲い、閉じた店舗の境界を曖昧にし、夜間の都市に無人の壁を作る。",
+      "design_translation": "閉じた面の一部を可動式の寄りかかり面にし、昼はフラットに擬態し、夜は身体を受ける角度を持たせる。",
+      "related_prototype": "ナイトワーカー腰掛け / 寄りかかりサイン"
+    },
+    {
+      "original_file": "IMG_3902.JPG",
+      "copied_file": "assets/photos/selected/archive_equipment_04.jpg",
+      "archive_category": "equipment",
+      "title": "配管と設備の角",
+      "observation": "設備の角は、人が腰掛けるには微妙な高さだが、道具をかける・置くには十分な寸法を持つ。",
+      "design_translation": "設備の角に取り付ける鞍型のフックと小棚を設計し、昼の設備の一部に見える家具を生む。",
+      "related_prototype": "ナイトワーカー腰掛け"
+    },
+    {
+      "original_file": "IMG_3917.JPG",
+      "copied_file": "assets/photos/selected/archive_equipment_05.jpg",
+      "archive_category": "equipment",
+      "title": "歩道際の設備カバー",
+      "observation": "設備カバーの上面は、清掃員や警備員の小物置きとして既に使われている痕跡が残る。",
+      "design_translation": "上面に滑り止めと小さな縁を加えた擬態天板を被せ、設備をそのまま家具化する。",
+      "related_prototype": "ナイトワーカー腰掛け"
+    },
+    {
+      "original_file": "FC4A991B-0EBF-41E9-A5D4-5AD56822203E.jpeg",
+      "copied_file": "assets/photos/selected/road_object_01.jpg",
+      "archive_category": "road_object",
+      "title": "自販機脇の缶と足元の痕跡",
+      "observation": "缶や小さなゴミは、立ち止まり、飲む、置く、離れるという短い行為の痕跡として路面に残る。",
+      "design_translation": "ポールや看板脚部に小さな缶置き面を設け、散らばる痕跡を家具の寸法へ回収する。",
+      "related_prototype": "ポール差し込みテーブル / 夜間公共性センサー家具"
+    },
+    {
+      "original_file": "IMG_3959.JPG",
+      "copied_file": "assets/photos/selected/road_object_02.jpg",
+      "archive_category": "road_object",
+      "title": "コーンと注意サインの列",
+      "observation": "工事や店舗運用のためのコーンは、夜間の街路に仮設の境界線を作り、歩行者の居場所を細かく分節する。",
+      "design_translation": "仮設境界に擬態する軽量家具を作り、置くだけで短時間の待機場所と誘導を同時に成立させる。",
+      "related_prototype": "夜間公共性センサー家具"
+    },
+    {
+      "original_file": "IMG_3925.JPG",
+      "copied_file": "assets/photos/selected/archive_road_object_03.jpg",
+      "archive_category": "road_object",
+      "title": "舗装上の小物の散らばり",
+      "observation": "落ちた紙、ペットボトル、レシート。これらは夜の街路に最も多く残る人の痕跡である。",
+      "design_translation": "散らばりやすい寸法に合わせ、家具の足元に薄い受け皿面を設けて痕跡を回収する。",
+      "related_prototype": "夜間公共性センサー家具"
+    },
+    {
+      "original_file": "IMG_3826.JPG",
+      "copied_file": "assets/photos/selected/archive_road_object_04.jpg",
+      "archive_category": "road_object",
+      "title": "店頭の重し袋",
+      "observation": "看板の重しとして置かれた袋は、夜になると別の重さを街路に与え、視線の高さで居場所を区切る。",
+      "design_translation": "重し袋の重さと寸法を流用し、移動可能な家具のベースに取り込む。",
+      "related_prototype": "始発待ちベンチ看板"
+    },
+    {
+      "original_file": "6FEDAF3E-39BF-4F7F-B5A7-5F8C6E9960EE.jpeg",
+      "copied_file": "assets/photos/selected/street_trace_01.jpg",
+      "archive_category": "street_trace",
+      "title": "シャッター前の布のかたまり",
+      "observation": "閉じたシャッターの前に布や袋が置かれ、店舗の前面が一時的な保管や休息の場所へ変わっている。",
+      "design_translation": "閉店後のシャッター前にだけ現れる薄いベンチや荷物置きを、昼の店舗前景に溶け込む形で設計する。",
+      "related_prototype": "始発待ちベンチ看板"
+    },
+    {
+      "original_file": "FD52A185-8966-4D68-AA59-7DFEFD392B4D.jpeg",
+      "copied_file": "assets/photos/selected/street_trace_02.jpg",
+      "archive_category": "street_trace",
+      "title": "ボラード脇の一時的な置き場",
+      "observation": "ボラードやガードレールの脇は、都市の隙間として袋や道具が置かれ、管理と放置の中間状態を作る。",
+      "design_translation": "既存の車止めの周囲に小さな置き面を加え、荷物や清掃道具を路面から浮かせて受ける。",
+      "related_prototype": "ポール差し込みテーブル / 夜間公共性センサー家具"
+    },
+    {
+      "original_file": "351341DF-5649-4DD1-BE18-56250934C670.jpeg",
+      "copied_file": "assets/photos/selected/street_trace_03.jpg",
+      "archive_category": "street_trace",
+      "title": "夜の路面に積まれた痕跡",
+      "observation": "閉店後の路面に置かれたビニール袋やペットボトルは、夜間の居場所を読み取る最小の単位として残る。",
+      "design_translation": "痕跡の寸法をモジュール化し、置く・拾う・残すを許容する薄い置き面を都市部材に重ねる。",
+      "related_prototype": "夜間公共性センサー家具"
+    },
+    {
+      "original_file": "IMG_3833.JPG",
+      "copied_file": "assets/photos/selected/archive_street_trace_04.jpg",
+      "archive_category": "street_trace",
+      "title": "閉店後の店頭の小物",
+      "observation": "閉店した店頭には、看板下地・置き荷物・台車などが昼の運用そのままに残り、夜の静止状態を強調する。",
+      "design_translation": "夜の静止物の輪郭に重ねて、起き上がる家具面を設計する。",
+      "related_prototype": "始発待ちベンチ看板 / 夜間公共性センサー家具"
+    },
+    {
+      "original_file": "9133526F-3F2E-42F4-BBEA-4B798FA2FDF4.JPG",
+      "copied_file": "assets/photos/selected/people_stay_01.jpg",
+      "archive_category": "people_stay",
+      "title": "閉じたシャッター前に座る",
+      "observation": "閉店後のシャッターは、昼の商業面から夜の背景面に変わり、座る身体を受け止める静かな壁になる。",
+      "design_translation": "シャッター前の余白に、短く座れる始発待ちベンチ看板を置き、閉店後だけ居場所として起動させる。",
+      "related_prototype": "始発待ちベンチ看板"
+    },
+    {
+      "original_file": "IMG_3952.JPG",
+      "copied_file": "assets/photos/selected/people_stay_02.jpg",
+      "archive_category": "people_stay",
+      "title": "道路端に沈む身体",
+      "observation": "縁石や建物際は、酔いを冷ます、スマホを見る、誰かを待つといった一人の行為を受け止めている。",
+      "design_translation": "縁石のような低い高さに、小さな背当てと荷物置きを加え、一人の待機を街路から少しだけ守る。",
+      "related_prototype": "寄りかかりサイン / 始発待ちベンチ看板"
+    },
+    {
+      "original_file": "IMG_3920.JPG",
+      "copied_file": "assets/photos/selected/people_stay_03.jpg",
+      "archive_category": "people_stay",
+      "title": "壁と標識柱のあいだに立つ",
+      "observation": "身体は壁際と柱のあいだに入り、通行から半歩外れることで一時的な居場所を作る。",
+      "design_translation": "壁際のサイン面に寄りかかり角度を与え、立ったまま待つための薄い家具として設計する。",
+      "related_prototype": "寄りかかりサイン"
+    },
+    {
+      "original_file": "IMG_3941.JPG",
+      "copied_file": "assets/photos/selected/people_stay_04.jpg",
+      "archive_category": "people_stay",
+      "title": "設備脇に座る身体と荷物",
+      "observation": "設備、柱、バッグが一つの小さな生活単位を作り、路上に仮のリビングのような配置が生まれている。",
+      "design_translation": "設備箱型の腰掛けに荷物の逃げを組み込み、座る身体と所有物を同時に受け止める。",
+      "related_prototype": "ナイトワーカー腰掛け"
+    },
+    {
+      "original_file": "1EF14C48-F82E-4B5D-A55A-2F425AC0748E.jpeg",
+      "copied_file": "assets/photos/selected/people_stay_05.jpg",
+      "archive_category": "people_stay",
+      "title": "始発待ちの群れと距離",
+      "observation": "始発を待つ人々は密集と分散を繰り返し、互いの距離が一時的なコミュニティの輪郭を描く。",
+      "design_translation": "個別の小さな家具を点在配置し、距離を選びながら座れる始発待ちのレイヤーを街路に重ねる。",
+      "related_prototype": "始発待ちベンチ看板"
+    },
+    {
+      "original_file": "IMG_3848.JPG",
+      "copied_file": "assets/photos/selected/archive_people_stay_06.jpg",
+      "archive_category": "people_stay",
+      "title": "路地でスマホを見る",
+      "observation": "路地は通行ではなく、視線を逃がして時間を潰すための場所として夜間に変わる。",
+      "design_translation": "路地壁面に薄い寄りかかり面を貼り、滞留を支える最小の家具とする。",
+      "related_prototype": "寄りかかりサイン"
+    },
+    {
+      "original_file": "IMG_3922.JPG",
+      "copied_file": "assets/photos/selected/archive_people_stay_07.jpg",
+      "archive_category": "people_stay",
+      "title": "歩道で立ち止まる二人",
+      "observation": "二人組は会話のために身体を斜めに向け合い、家具のないところに小さな会話の三角形を作る。",
+      "design_translation": "会話の三角形の中心に小さな共有テーブルを置き、立ち会話を物理的に支える。",
+      "related_prototype": "ポール差し込みテーブル"
+    },
+    {
+      "original_file": "IMG_3824.JPG",
+      "copied_file": "assets/photos/selected/night_worker_01.jpg",
+      "archive_category": "night_worker",
+      "title": "深夜の作業車とコーン",
+      "observation": "終電後の渋谷では、遊びや待機と同時に清掃、搬入、工事が進み、街路は作業の場へ切り替わる。",
+      "design_translation": "ナイトワーカー腰掛けは、清掃員や搬入スタッフが短く座り、道具を置ける設備擬態型の家具として計画する。",
+      "related_prototype": "ナイトワーカー腰掛け"
+    },
+    {
+      "original_file": "IMG_3847.JPG",
+      "copied_file": "assets/photos/selected/night_worker_02.jpg",
+      "archive_category": "night_worker",
+      "title": "搬入車の停車余白",
+      "observation": "店舗裏や道路脇の停車は、昼の歩行空間を夜間だけ物流のインフラへ変える。",
+      "design_translation": "家具を固定物ではなく、搬入動線を邪魔しない薄さと移動可能性を持つ部材として設計する。",
+      "related_prototype": "ナイトワーカー腰掛け"
+    },
+    {
+      "original_file": "IMG_3884.JPG",
+      "copied_file": "assets/photos/selected/night_worker_03.jpg",
+      "archive_category": "night_worker",
+      "title": "閉店後のトラックとサイン",
+      "observation": "閉じた店舗前にトラックが停まり、昼のファサードが夜の搬入口に読み替えられている。",
+      "design_translation": "サインや設備箱に見える家具を、搬入時には道具置き、待機時には腰掛けとして使える寸法にする。",
+      "related_prototype": "ナイトワーカー腰掛け"
+    },
+    {
+      "original_file": "IMG_3830.JPG",
+      "copied_file": "assets/photos/selected/archive_night_worker_04.jpg",
+      "archive_category": "night_worker",
+      "title": "清掃車の後方作業",
+      "observation": "清掃車の後ろでは、ホースや道具が一時的に道路に置かれ、作業者の身体が低い姿勢で並ぶ。",
+      "design_translation": "清掃道具の寸法に合わせた小棚と低い腰掛けをセットにする。",
+      "related_prototype": "ナイトワーカー腰掛け"
+    },
+    {
+      "original_file": "IMG_3846.JPG",
+      "copied_file": "assets/photos/selected/archive_night_worker_05.jpg",
+      "archive_category": "night_worker",
+      "title": "搬入待ちの低い姿勢",
+      "observation": "搬入待ちのスタッフは、設備箱や階段にしゃがみ、休む高さを自分で見つける。",
+      "design_translation": "立位と座位の中間の高さを持つ家具を設計し、待機の姿勢に逃げを与える。",
+      "related_prototype": "ナイトワーカー腰掛け"
+    },
+    {
+      "original_file": "22007A55-5420-4054-9CCC-A866506BB3E0.jpeg",
+      "copied_file": "assets/photos/selected/prototype_01.jpg",
+      "archive_category": "prototype",
+      "title": "落書きシャッター前のプロトタイプ",
+      "observation": "強い壁面表層の前に家具が置かれると、都市の荒い背景と柔らかい座面の対比が明確になる。",
+      "design_translation": "素材や色を完全に隠すのではなく、夜だけ身体に反応する仮設性として残す。",
+      "related_prototype": "始発待ちベンチ看板"
+    },
+    {
+      "original_file": "CA4D98EE-12FE-42DA-B1D1-8DD723662876.JPG",
+      "copied_file": "assets/photos/selected/prototype_02.jpg",
+      "archive_category": "prototype",
+      "title": "広告街路で使われる椅子",
+      "observation": "人が実際に座ると、家具は作品ではなく、スマホ、飲食、待機のための都市の道具として見えてくる。",
+      "design_translation": "座面角度、足の置き場、荷物の位置を観察し、短時間滞在の身体寸法に合わせて調整する。",
+      "related_prototype": "寄りかかりサイン / 始発待ちベンチ看板"
+    },
+    {
+      "original_file": "IMG_3852.JPG",
+      "copied_file": "assets/photos/selected/prototype_03.jpg",
+      "archive_category": "prototype",
+      "title": "赤い店舗前の始発待ち",
+      "observation": "シャッターや店舗看板の前に座ると、閉じた商業面が一時的な背後の安心感を生む。",
+      "design_translation": "昼は看板下地、夜は始発待ちベンチとして、同じ面を時間帯で読み替える。",
+      "related_prototype": "始発待ちベンチ看板"
+    },
+    {
+      "original_file": "IMG_3877.JPG",
+      "copied_file": "assets/photos/selected/prototype_04.jpg",
+      "archive_category": "prototype",
+      "title": "シャッター際の単独椅子",
+      "observation": "閉じたシャッターと細い道路境界のあいだに、一人分の居場所が成立している。",
+      "design_translation": "幅の狭い通りでも置けるよう、奥行きを抑えた折りたたみ式または差し込み式の座面を検討する。",
+      "related_prototype": "始発待ちベンチ看板"
+    },
+    {
+      "original_file": "IMG_3895.JPG",
+      "copied_file": "assets/photos/selected/prototype_05.jpg",
+      "archive_category": "prototype",
+      "title": "駅前広場の縁に置く",
+      "observation": "大きな横断や駅前動線の端部では、座る家具が流れから半歩外れた観察点になる。",
+      "design_translation": "移動の主動線に入らない位置に、短時間の待機と街の観察を支える家具を置く。",
+      "related_prototype": "始発待ちベンチ看板"
+    },
+    {
+      "original_file": "DSCF3617.jpg",
+      "copied_file": "assets/photos/selected/prototype_pole_new_01.jpg",
+      "archive_category": "prototype",
+      "title": "夜の路地で柱に寄せる",
+      "observation": "終電後の静かな路地、標識柱の根本にプロトタイプ椅子を差し込むと、街灯に照らされた1人分の居場所が立ち上がる。",
+      "design_translation": "柱を背もたれに使う差し込み式座面は、街路の垂直要素を支点として再利用する最小の設計操作になる。",
+      "related_prototype": "ポール差し込みテーブル / U字柵ハックチェア",
+      "added_batch": "2026_new_upload_01"
+    },
+    {
+      "original_file": "DSCF3656.jpg",
+      "copied_file": "assets/photos/selected/prototype_people_new_01.jpg",
+      "archive_category": "prototype",
+      "title": "夜の屋台脇に座る",
+      "observation": "渋谷の屋台前の余白に置いたプロトタイプは、通行する人の流れの中で1人だけ静止した点になる。",
+      "design_translation": "屋台や案内サインの脇に置く家具は、視線の流れを切らずに身体だけ止める「半透明の居場所」として設計する。",
+      "related_prototype": "始発待ちベンチ看板",
+      "added_batch": "2026_new_upload_01"
+    },
+    {
+      "original_file": "DSCF3675.jpg",
+      "copied_file": "assets/photos/selected/prototype_hero_new_01.jpg",
+      "archive_category": "prototype",
+      "title": "交差点の柱に背を預ける",
+      "observation": "渋谷の主要交差点、ステッカー貼り重ねの柱を背に椅子を差し込むと、人通りの少ない夜の街路に小さな観測点が生まれる。",
+      "design_translation": "都市部材の中で最も「貼り重ね」が進んだ柱を背もたれに使うことで、家具自体も都市の表層の一部として擬態する。",
+      "related_prototype": "ポール差し込みテーブル / 寄りかかりサイン",
+      "added_batch": "2026_new_upload_01"
+    },
+    {
+      "original_file": "DSCF3676.jpg",
+      "copied_file": "assets/photos/selected/prototype_hero_new_02.jpg",
+      "archive_category": "prototype",
+      "title": "通り過ぎる車と静止する身体",
+      "observation": "車のヘッドライトが流れる交差点で、プロトタイプに座る身体だけが街路の中で静止しているように見える。",
+      "design_translation": "車道境界の柱に固定する家具は、通行する都市と止まる身体の対比を1枚の風景に重ねる装置になる。",
+      "related_prototype": "ポール差し込みテーブル",
+      "added_batch": "2026_new_upload_01"
+    },
+    {
+      "original_file": "DSCF3680.jpg",
+      "copied_file": "assets/photos/selected/prototype_equipment_new_01.jpg",
+      "archive_category": "prototype",
+      "title": "設備箱を背もたれにする",
+      "observation": "渋谷の駅前広場、ステッカーが層になった設備箱の前で、椅子を差し込んだ身体は街灯の輪郭の中に収まる。",
+      "design_translation": "設備箱の硬い垂直面は背もたれとして最適。昼は設備に擬態し、夜は身体を受ける厚みを与える家具へ翻訳する。",
+      "related_prototype": "ナイトワーカー腰掛け / 寄りかかりサイン",
+      "added_batch": "2026_new_upload_01"
+    },
+    {
+      "original_file": "DSCF3714.jpg",
+      "copied_file": "assets/photos/selected/prototype_hero_new_03.jpg",
+      "archive_category": "prototype",
+      "title": "渋谷中央街の縁に座る",
+      "observation": "渋谷中央街の縁、コンビニと交差点の間に椅子を差し込むと、街の主動線から半歩外れた観察点が生まれる。",
+      "design_translation": "ファサードと車道の境界に置ける薄い椅子は、夜だけ現れる「観察するための居場所」として街路に重なる。",
+      "related_prototype": "始発待ちベンチ看板 / ポール差し込みテーブル",
+      "added_batch": "2026_new_upload_01"
+    },
+    {
+      "original_file": "DSCF3749.jpg",
+      "copied_file": "assets/photos/selected/prototype_fence_new_01.jpg",
+      "archive_category": "prototype",
+      "title": "通路のピンク手すりに差し込む",
+      "observation": "歩道橋やデッキの通路、ピンクの手すりに椅子を差し込むと、本来通り抜けるための面が一時的に居場所として読み替えられる。",
+      "design_translation": "通り抜けのための手すりを背もたれに変える差し込み家具は、通行設備を居場所に変換する基本操作の検証になる。",
+      "related_prototype": "U字柵ハックチェア",
+      "added_batch": "2026_new_upload_01"
+    }
+  ]
+}

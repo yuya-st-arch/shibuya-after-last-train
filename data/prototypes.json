@@ -1,0 +1,67 @@
+[
+  {
+    "id": "p1",
+    "number": "01",
+    "name": "寄りかかりサイン",
+    "target_object": "看板・広告面・案内サイン",
+    "behaviors": ["酔いを冷ます", "スマホを見る", "視線を外す", "短く寄りかかる"],
+    "time": "23:30 – 04:00",
+    "location": "店舗ファサード前 / 路地入り口 / 駅前広場の外側",
+    "material": "鋼板 + 半透明アクリル + ステッカー下地",
+    "intent": "昼は看板や広告面に見える。夜は一人で酔いを冷ましたり、スマホを見たり、短く寄りかかるための面になる。",
+    "drawing": "assets/drawings/detail_sign_01.jpg",
+    "photo": "assets/photos/selected/prototype_01.jpg"
+  },
+  {
+    "id": "p2",
+    "number": "02",
+    "name": "始発待ちベンチ看板",
+    "target_object": "案内サイン / 広告下地",
+    "behaviors": ["始発を待つ", "短く座る", "視線を駅へ向ける"],
+    "time": "03:30 – 05:30",
+    "location": "駅周辺の歩道 / バス停近接 / 横断歩道脇",
+    "material": "アルミフレーム + 耐候木 + 反射シート",
+    "intent": "昼は案内サインや広告下地に見える。夜は短時間だけ座れる始発待ちの家具になる。",
+    "drawing": "assets/drawings/detail_bench_sign_01.jpg",
+    "photo": "assets/photos/selected/prototype_03.jpg"
+  },
+  {
+    "id": "p3",
+    "number": "03",
+    "name": "ナイトワーカー腰掛け",
+    "target_object": "設備箱 / 看板下地",
+    "behaviors": ["短く座る", "道具を置く", "待機する"],
+    "time": "22:00 – 06:00",
+    "location": "店舗裏 / 設備脇 / 搬入動線の余白",
+    "material": "塗装鋼板 + 防滑天板 + 道具掛けフック",
+    "intent": "昼は設備箱や看板下地に見える。夜は清掃員、警備員、搬入スタッフが短く腰掛けたり道具を置いたりできる。",
+    "drawing": "assets/drawings/detail_night_worker_01.jpg",
+    "photo": "assets/photos/selected/night_worker_03.jpg"
+  },
+  {
+    "id": "p4",
+    "number": "04",
+    "name": "ポール差し込みテーブル",
+    "target_object": "車止め / 円柱ポール",
+    "behaviors": ["缶やスマホを置く", "立ち止まる", "短く話す"],
+    "time": "23:00 – 04:30",
+    "location": "歩道のポール群 / 自販機脇 / 路地交差点",
+    "material": "曲げ鋼板 + ゴム緩衝材 + 反射エッジ",
+    "intent": "道路にある円柱ポールや車止めに被せる小さな天板。缶、スマホ、荷物を置き、立ち止まりの行為を支える。",
+    "drawing": "assets/drawings/detail_pole_table_01.jpg",
+    "photo": "assets/photos/selected/pole_01.jpg"
+  },
+  {
+    "id": "p5",
+    "number": "05",
+    "name": "U字柵ハックチェア",
+    "target_object": "U字柵 / ガードレール",
+    "behaviors": ["寄りかかる", "短く座る", "会話する", "荷物を置く"],
+    "time": "00:00 – 05:00",
+    "location": "歩道のU字柵 / 駐輪境界 / 駅前広場の縁",
+    "material": "鋼パイプ + 耐候合板 + 結束金物",
+    "intent": "自転車や人の流れを制御するU字柵に、差し込み式の座面や寄りかかり面を加える。",
+    "drawing": "assets/drawings/detail_u_fence_01.jpg",
+    "photo": "assets/photos/selected/u_fence_01.jpg"
+  }
+]

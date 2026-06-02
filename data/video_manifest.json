@@ -1,0 +1,90 @@
+[
+  {
+    "original_file": "OvB33a6W1y2bX2P22yqLqvfchnIXH6fMpls-QFeFYFk.mp4",
+    "copied_file": "assets/videos/selected/video_ambience_01.mp4",
+    "poster_file": "assets/photos/selected/hero_01.jpg",
+    "category": "video_ambience",
+    "title": "Hero Ambience — 109前の夜",
+    "observation": "終電後の109前は、広告塔のループ映像と人の動きが切り離され、巨大な背景幕の前で身体がスローモーションのように残る。",
+    "suggested_section": "Hero",
+    "duration_note": "短いループ向け。Heroの背景動画として使用。",
+    "priority": 1
+  },
+  {
+    "original_file": "RFsBi05PP_e9AL_Fw95uVYOR9DQB9LNr4bRYOypRb4o.mp4",
+    "copied_file": "assets/videos/selected/video_ambience_02.mp4",
+    "poster_file": "assets/photos/selected/hero_03.jpg",
+    "category": "video_ambience",
+    "title": "Night Ambience — 空白化した街路",
+    "observation": "渋谷の夜の街路は、車のヘッドライトと信号だけが緩やかに動き、人の不在が広告面のテンポを際立たせる。",
+    "suggested_section": "Hero / Field Notes",
+    "duration_note": "Hero背景の予備候補。",
+    "priority": 2
+  },
+  {
+    "original_file": "bLXhfqG7ytlalBh9_iH0tENkAjhkIXrwyDta7G5D1wo.mp4",
+    "copied_file": "assets/videos/selected/video_ambience_03.mp4",
+    "poster_file": "assets/photos/selected/night_street_01.jpg",
+    "category": "video_ambience",
+    "title": "Quiet Ambience — 看板下の停留",
+    "observation": "看板や店舗ファサードの下に、立ち止まる身体と置かれた荷物が一連の小さな映像として残る。",
+    "suggested_section": "Field Notes",
+    "duration_note": "Field Notesのカード用。",
+    "priority": 2
+  },
+  {
+    "original_file": "V0oxBJnVAPLukbSP5dDHU4Xc1Ss4vIo2sHBdjnowW_o.mp4",
+    "copied_file": "assets/videos/selected/video_street_01.mp4",
+    "poster_file": "assets/photos/selected/night_street_02.jpg",
+    "category": "video_street",
+    "title": "Street Drift — 路上滞留の連なり",
+    "observation": "路面に近い視線でとらえると、滞留する身体、ボトル、看板が同じ高さで並び、夜の路上が一つの平面になる。",
+    "suggested_section": "Field Notes / Night Timeline",
+    "duration_note": "Field Notesの動画カードで使用。",
+    "priority": 1
+  },
+  {
+    "original_file": "ZRonJgURrzoJMax9O848QxCiAeIyAtuApl65n_2gbwg.mp4",
+    "copied_file": "assets/videos/selected/video_street_02.mp4",
+    "poster_file": "assets/photos/selected/people_stay_01.jpg",
+    "category": "video_street",
+    "title": "Street Drift — シャッター前の身体",
+    "observation": "閉店後のシャッター前に座り続ける身体は、昼の通行とは別の時間軸で街路に重なる。",
+    "suggested_section": "Field Notes",
+    "duration_note": "Field Notesの動画カード。",
+    "priority": 2
+  },
+  {
+    "original_file": "kNDlCvS4XYekuWSeGghHYt78UMZruVWqAgCWx38msfo.mp4",
+    "copied_file": "assets/videos/selected/video_street_03.mp4",
+    "poster_file": "assets/photos/selected/night_worker_01.jpg",
+    "category": "video_street",
+    "title": "Street Drift — ナイトワーカーの動線",
+    "observation": "清掃車両や搬入動線は、終電後の街路を一時的な物流空間に切り替え、家具の置けない場所と置ける場所を明確にする。",
+    "suggested_section": "Observation Map / Field Notes",
+    "duration_note": "MapやField Notesの動画カードで使用。",
+    "priority": 2
+  },
+  {
+    "original_file": "ZdhWhZM5REGyq8QKu9lRyabBta1OLucBlcnIpe_ZVPg.mp4",
+    "copied_file": "assets/videos/selected/video_movement_01.mp4",
+    "poster_file": "assets/photos/selected/people_stay_03.jpg",
+    "category": "video_movement",
+    "title": "Body Movement — 立ち止まりとスマホ",
+    "observation": "壁際で立ち止まりスマホを見る短い動きは、ベンチがなくても成立する都市の最小単位の滞在である。",
+    "suggested_section": "Transformation",
+    "duration_note": "Transformationの図解の参考素材。",
+    "priority": 2
+  },
+  {
+    "original_file": "_cVgyXueft9dkyiHHpWu9qBBR7jclsWneeDQPy4-oiA.mp4",
+    "copied_file": "assets/videos/selected/video_movement_02.mp4",
+    "poster_file": "assets/photos/selected/people_stay_04.jpg",
+    "category": "video_movement",
+    "title": "Body Movement — 寄りかかりの瞬間",
+    "observation": "壁、柱、サインへの寄りかかりは数秒で切り替わり、その短さこそが都市家具に必要な寸法の根拠になる。",
+    "suggested_section": "Transformation / Furniture Prototypes",
+    "duration_note": "Transformation図解の参考。",
+    "priority": 3
+  }
+]

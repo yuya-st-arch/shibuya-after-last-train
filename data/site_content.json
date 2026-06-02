@@ -1,0 +1,287 @@
+{
+  "site": {
+    "title": "SHIBUYA AFTER LAST TRAIN",
+    "subtitle": "終電後の渋谷をリビング化する擬態的都市家具",
+    "kicker": "Urban Observation Interface",
+    "meta": [
+      "00:30 – 05:00",
+      "Shibuya / Field Study",
+      "Furniture as Urban Camouflage"
+    ]
+  },
+  "hero": {
+    "video": "assets/videos/selected/video_ambience_01.mp4",
+    "poster": "assets/photos/selected/hero_01.jpg",
+    "copy": "終電後、渋谷はもう一つの都市になる。",
+    "description": "広告、商業、観光の都市として語られる渋谷を、終電後から始発までに現れる身体の置き方から読み直す。",
+    "candidates": [
+      {
+        "image": "assets/photos/selected/prototype_hero_new_01.jpg",
+        "note": "交差点の柱に背を預ける — 渋谷の主要交差点、ステッカー貼り重ねの柱を背に椅子を差し込むと、人通りの少ない夜の街路に小さな観測点が生まれる。",
+        "batch": "2026_new_upload_01"
+      },
+      {
+        "image": "assets/photos/selected/prototype_hero_new_02.jpg",
+        "note": "通り過ぎる車と静止する身体 — 車のヘッドライトが流れる交差点で、プロトタイプに座る身体だけが街路の中で静止しているように見える。",
+        "batch": "2026_new_upload_01"
+      },
+      {
+        "image": "assets/photos/selected/prototype_hero_new_03.jpg",
+        "note": "渋谷中央街の縁に座る — 渋谷中央街の縁、コンビニと交差点の間に椅子を差し込むと、街の主動線から半歩外れた観察点が生まれる。",
+        "batch": "2026_new_upload_01"
+      }
+    ]
+  },
+  "concept": {
+    "kicker": "01 / Concept",
+    "heading": "広告都市の下に現れる、もう一つの生活面。",
+    "lead": "本提案は「ベンチを増やす」計画ではない。都市がすでに持っている柵、柱、看板、設備箱の読み方を変え、終電後にだけ現れる一時的な公共性を観測し、設計するための研究である。",
+    "panels": [
+      {
+        "label": "Day / 11:00",
+        "title": "広告・商業・観光のレイヤー",
+        "text": "昼の渋谷は、広告塔、店舗ファサード、案内サインが視線と動線をコントロールし、購買と通過のための都市として動く。"
+      },
+      {
+        "label": "Last Train / 00:30",
+        "title": "鉄道による移動可能性の遮断",
+        "text": "終電後、駅と都市をつないでいた移動の連続が一度切れ、人は街路に投げ出される。広告は機能を弱め、人は壁、柱、段差、柵を読み替え始める。"
+      },
+      {
+        "label": "Night / 02:00",
+        "title": "擬態と起動",
+        "text": "本提案は、その夜間の行為を観察し、昼は都市設備に擬態し、夜は身体を受け止める家具群として設計する。"
+      }
+    ]
+  },
+  "timeline": [
+    {
+      "time": "00:30",
+      "label": "終電後",
+      "text": "鉄道による移動可能性が一度切れ、駅前の人流が滞留に変わる。"
+    },
+    {
+      "time": "01:00",
+      "label": "路上滞留",
+      "text": "壁際、段差、車止め、U字柵に身体が分散して定着し始める。"
+    },
+    {
+      "time": "02:00",
+      "label": "クラブ帰り",
+      "text": "通行が減り、酔いを冷ます、誰かを待つ、スマホを見るための一人の時間が街路を満たす。"
+    },
+    {
+      "time": "03:00",
+      "label": "清掃・搬入",
+      "text": "ナイトワーカーが設備箱、看板下、シャッター前を作業の足場として読み替える。"
+    },
+    {
+      "time": "04:00",
+      "label": "始発待ち",
+      "text": "駅周辺に小さな群れが点在し、座る・立つ・寄りかかるが入れ替わる。"
+    },
+    {
+      "time": "05:00",
+      "label": "都市が昼へ戻る",
+      "text": "広告と通行のレイヤーが再起動し、夜の痕跡は設備の表面に吸収されていく。"
+    }
+  ],
+  "map": {
+    "kicker": "04 / Observation Map",
+    "heading": "終電後の渋谷を読むためのフィールドマップ",
+    "lead": "観察地点を線でつなぐことで、写真は単体の記録から、終電後の渋谷を読むための連続したフィールドワークへ変わる。",
+    "legend": [
+      {
+        "key": "stay",
+        "color": "#e94f44",
+        "label": "人の滞留",
+        "note": "始発待ち・路上滞留・休憩"
+      },
+      {
+        "key": "site",
+        "color": "#3a86ff",
+        "label": "家具設置候補",
+        "note": "観察に基づくプロトタイプ配置地点"
+      },
+      {
+        "key": "used",
+        "color": "#c19a4a",
+        "label": "座られてしまう都市部材",
+        "note": "U字柵・縁石・設備箱・看板脚部"
+      },
+      {
+        "key": "worker",
+        "color": "#9d4edd",
+        "label": "夜間労働・搬入",
+        "note": "清掃・搬入・警備の作業領域"
+      }
+    ]
+  },
+  "transformation": [
+    {
+      "id": "u_fence",
+      "object": "U字柵",
+      "object_role": "通行制御 / 自転車駐輪境界",
+      "behaviors": [
+        "寄りかかる",
+        "荷物を置く",
+        "短い会話"
+      ],
+      "prototype": "U字柵ハックチェア / 差し込みテーブル",
+      "design_intent": "柵に差し込む座面と背当てを設計し、通行制御の部材を一時的な家具へ反転させる。"
+    },
+    {
+      "id": "pole",
+      "object": "車止めポール",
+      "object_role": "車両進入抑止 / 路面の垂直要素",
+      "behaviors": [
+        "缶を置く",
+        "立ち止まる",
+        "スマホを見る"
+      ],
+      "prototype": "ポール差し込みテーブル",
+      "design_intent": "柱に被せる小さな天板を作り、立ったまま休む身体の支点を作る。"
+    },
+    {
+      "id": "sign",
+      "object": "看板 / サイン",
+      "object_role": "情報・広告・案内",
+      "behaviors": [
+        "壁際に寄る",
+        "視線を外す",
+        "酔いを冷ます"
+      ],
+      "prototype": "寄りかかりサイン",
+      "design_intent": "広告面の背面に身体を逃がす厚みを与え、サインと家具を同じ部材に重ねる。"
+    },
+    {
+      "id": "equipment",
+      "object": "設備箱",
+      "object_role": "電源・配管・設備カバー",
+      "behaviors": [
+        "道具を置く",
+        "短く休む"
+      ],
+      "prototype": "ナイトワーカー腰掛け",
+      "design_intent": "設備箱に擬態した腰掛けを作り、清掃員・警備員・搬入スタッフの短時間滞在を支える。"
+    },
+    {
+      "id": "road_object",
+      "object": "道路上の小物・痕跡",
+      "object_role": "缶・ボトル・コーン・置き袋",
+      "behaviors": [
+        "一時的に置く",
+        "拾う",
+        "残す"
+      ],
+      "prototype": "夜間公共性センサー家具",
+      "design_intent": "夜間に現れる痕跡を寸法化し、置く・拾う・残すを許容する薄い置き面として都市に重ねる。"
+    }
+  ],
+  "prototypes": [
+    {
+      "id": "p1",
+      "number": "01",
+      "name": "寄りかかりサイン",
+      "target_object": "看板・広告面・案内サイン",
+      "behaviors": "酔いを冷ます / スマホを見る / 視線を外す / 短く寄りかかる",
+      "time": "23:30 – 04:00",
+      "location": "店舗ファサード前 / 路地入り口 / 駅前広場の外側",
+      "material": "鋼板 + 半透明アクリル + ステッカー下地",
+      "intent": "昼は看板や広告面に見える。夜は一人で酔いを冷ましたり、スマホを見たり、短く寄りかかるための面になる。"
+    },
+    {
+      "id": "p2",
+      "number": "02",
+      "name": "始発待ちベンチ看板",
+      "target_object": "案内サイン / 広告下地",
+      "behaviors": "始発を待つ / 短く座る / 視線を駅へ向ける",
+      "time": "03:30 – 05:30",
+      "location": "駅周辺の歩道 / バス停近接 / 横断歩道脇",
+      "material": "アルミフレーム + 耐候木 + 反射シート",
+      "intent": "昼は案内サインや広告下地に見える。夜は短時間だけ座れる始発待ちの家具になる。"
+    },
+    {
+      "id": "p3",
+      "number": "03",
+      "name": "ナイトワーカー腰掛け",
+      "target_object": "設備箱 / 看板下地",
+      "behaviors": "短く座る / 道具を置く / 待機する",
+      "time": "22:00 – 06:00",
+      "location": "店舗裏 / 設備脇 / 搬入動線の余白",
+      "material": "塗装鋼板 + 防滑天板 + 道具掛けフック",
+      "intent": "昼は設備箱や看板下地に見える。夜は清掃員、警備員、搬入スタッフが短く腰掛けたり道具を置いたりできる。"
+    },
+    {
+      "id": "p4",
+      "number": "04",
+      "name": "ポール差し込みテーブル",
+      "target_object": "車止め / 円柱ポール",
+      "behaviors": "缶やスマホを置く / 立ち止まる / 短く話す",
+      "time": "23:00 – 04:30",
+      "location": "歩道のポール群 / 自販機脇 / 路地交差点",
+      "material": "曲げ鋼板 + ゴム緩衝材 + 反射エッジ",
+      "intent": "道路にある円柱ポールや車止めに被せる小さな天板。缶、スマホ、荷物を置き、立ち止まりの行為を支える。"
+    },
+    {
+      "id": "p5",
+      "number": "05",
+      "name": "U字柵ハックチェア",
+      "target_object": "U字柵 / ガードレール",
+      "behaviors": "寄りかかる / 短く座る / 会話する / 荷物を置く",
+      "time": "00:00 – 05:00",
+      "location": "歩道のU字柵 / 駐輪境界 / 駅前広場の縁",
+      "material": "鋼パイプ + 耐候合板 + 結束金物",
+      "intent": "自転車や人の流れを制御するU字柵に、差し込み式の座面や寄りかかり面を加える。"
+    }
+  ],
+  "drawings": [
+    {
+      "id": "map",
+      "label": "Observation Map",
+      "file": "assets/maps/night_observation_map_01.jpg",
+      "note": "終電後の観察ルートと家具設置候補を重ねた地図"
+    },
+    {
+      "id": "diagram",
+      "label": "Transformation Diagram",
+      "file": "assets/drawings/transformation_diagram_01.jpg",
+      "note": "都市部材 → 行為 → 家具プロトタイプの変換図"
+    },
+    {
+      "id": "u_fence",
+      "label": "U-Fence Detail",
+      "file": "assets/drawings/detail_u_fence_01.jpg",
+      "note": "U字柵への差し込み座面ディテール"
+    },
+    {
+      "id": "pole_table",
+      "label": "Pole Table Detail",
+      "file": "assets/drawings/detail_pole_table_01.jpg",
+      "note": "ポール被せ天板のディテール"
+    },
+    {
+      "id": "main",
+      "label": "Main Perspective",
+      "file": "assets/drawings/main_perspective_01.jpg",
+      "note": "夜の渋谷に家具群が起動するメインパース"
+    },
+    {
+      "id": "proto_p",
+      "label": "Prototype Photo",
+      "file": "assets/prototypes/prototype_photo_01.jpg",
+      "note": "原寸プロトタイプの撮影写真"
+    },
+    {
+      "id": "model",
+      "label": "Model Photo",
+      "file": "assets/prototypes/model_photo_01.jpg",
+      "note": "1/20スケールの模型撮影写真"
+    }
+  ],
+  "conclusion": {
+    "kicker": "10 / Conclusion",
+    "heading": "家具は、単なる解決策ではない。",
+    "body": "終電後の渋谷に現れる一時的な公共性を浮かび上がらせる観測装置である。\n昼は都市設備に擬態し、夜は身体を受け止める。\nその切り替わりの中に、広告都市としての渋谷とは別の、もう一つの渋谷が立ち上がる。"
+  }
+}
