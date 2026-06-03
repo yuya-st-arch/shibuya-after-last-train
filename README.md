@@ -1,7 +1,19 @@
-# SHIBUYA AFTER LAST TRAIN — Claude Code Edition
+# Shibuya After the Last Train
 
-終電後の渋谷を観察し、都市部材を擬態的家具プロトタイプへ変換する建築設計研究の展示用Webサイト。
-Claude Code 版（編集性・映像性・展示性に振った別案）。Codex 版とは別フォルダで管理する。
+終電後の渋谷を観察し、都市部材を擬態的家具プロトタイプへ変換する建築設計研究の Web アーカイブ。
+中間講評・プレゼンボード・ポートフォリオから **QR コードで開ける展示インターフェース** として運用する。
+
+| 項目 | URL |
+| --- | --- |
+| 🌐 **公開サイト** | https://yuya-st-arch.github.io/shibuya-after-last-train/ |
+| 📦 リポジトリ | https://github.com/yuya-st-arch/shibuya-after-last-train |
+| 🔲 QR コード | [`assets/qr_shibuya_web_archive.png`](./assets/qr_shibuya_web_archive.png) (PNG) / [`.svg`](./assets/qr_shibuya_web_archive.svg) (印刷用ベクター) |
+| 💻 ローカル確認 | `http://127.0.0.1:5176/` （後述） |
+
+> プレゼンボードに QR を貼るときは **SVG 版** を使うと縮小拡大でも潰れない。
+> 画面投影での発表時は、まず公開 URL を開き、右上の `Presentation` ボタンまたは **P キー** で講評モードに切り替え、ブラウザを **F11 で全画面** にする。
+
+---
 
 ## 1. 起動方法
 
@@ -132,39 +144,83 @@ shibuya_after_last_train_web_claude/
 }
 ```
 
-## 5. Presentation Mode
+## 5. Presentation Mode（講評・発表向け）
 
-右上の「Presentation」ボタン、または body にフォーカスを置いた状態で **P キー** でトグルする。
-Field Notes と Urban Parts Archive、細かいUIが消え、Hero / Concept / Timeline / Map / Transformation / Prototypes / Drawings / Conclusion だけが残る講評モード。
+### 操作
+| 操作 | 効果 |
+| --- | --- |
+| 右上 `Presentation` ボタン または **P キー** | 講評モードのトグル |
+| **A キー**（Presentation中のみ） | Urban Parts Archive の表示／非表示 |
+| **F11** | ブラウザ全画面 |
+| `Esc` | 全画面解除・モーダル閉じる |
 
-- **A キー**：Presentation Mode 中だけ、Urban Parts Archive を一時的に再表示／非表示。素材庫を講評中に見せたい時に使用。
+### 講評モードで残る章
+Hero / Concept / Timeline / Map / Transformation / Prototypes / Drawings / Conclusion の 8 章だけ。
+Field Notes と Urban Parts Archive は隠れ、UI も最小化される。
 
-## 6. 公開方法（GitHub Pages / Netlify）
+### 発表時の推奨フロー
+1. 投影 PC で公開 URL を開く: <https://yuya-st-arch.github.io/shibuya-after-last-train/>
+2. **F11** で全画面 → **P** で Presentation Mode 起動
+3. スクロールで Concept → Timeline → Map → Transformation → Prototypes → Drawings → Conclusion
+4. アーカイブを見せたい瞬間だけ **A** で archive を出す
+5. 終わりに **Esc** で全画面解除
 
-### GitHub Pages
+### プレボに QR を貼る
+- 印刷ベクター: [`assets/qr_shibuya_web_archive.svg`](./assets/qr_shibuya_web_archive.svg)
+- 画面用ラスター: [`assets/qr_shibuya_web_archive.png`](./assets/qr_shibuya_web_archive.png)
+- 推奨配置サイズ: 印刷物では **3 cm × 3 cm 以上**（スマホカメラが安定して読める下限）
+
+```
+┌─────────────────────────┐
+│   QR (3cm)              │
+│                         │
+│   Shibuya After the     │
+│   Last Train            │
+│   → yuya-st-arch.github.io │
+└─────────────────────────┘
+```
+
+## 6. 公開と更新フロー（GitHub Pages）
+
+### 6-1. 現在の公開状態
+| 項目 | 値 |
+| --- | --- |
+| Repo | `https://github.com/yuya-st-arch/shibuya-after-last-train` |
+| Branch / Source | `main` / `/ (root)` |
+| Live URL | <https://yuya-st-arch.github.io/shibuya-after-last-train/> |
+| `.nojekyll` | 配置済み（Jekyll 解釈を無効化） |
+
+### 6-2. 普段の更新フロー（3行）
 ```powershell
 cd C:\Users\yuyag\projects\shibuya_after_last_train_web_claude
-git init
-git add .
-git commit -m "Initial: Claude Code edition"
-git branch -M main
-# public repository: https://github.com/yuya-st-arch/shibuya-after-last-train
-git remote add origin https://github.com/yuya-st-arch/shibuya-after-last-train.git
-git push -u origin main
+git add -A; git commit -m "Update: <変更内容を一言>"
+git push
 ```
-GitHub の Settings → Pages → Source = `main` / `/(root)` を選択。
+push 後 1〜2 分で Pages に反映される。確認は **Ctrl + Shift + R** でハードリロード。
 
-公開URL:
+### 6-3. 写真・動画を増やす時
+1. 元素材を `assets/photos/raw/` に置く（`.gitignore` で除外、push されない）
+2. Web で見せるものだけ `assets/photos/selected/` に英数字名でコピー
+3. **公開前に圧縮**: `python _backup_2026_new_upload_01/_optimize_for_web.py`（長辺 1920px / JPEG q82 / EXIF strip）
+4. `data/photo_manifest.json` または `data/archive_manifest.json` にエントリ追加
+5. 上記 6-2 を実行
 
-```text
-https://yuya-st-arch.github.io/shibuya-after-last-train/
-```
+### 6-4. QR コードを差し替える（URL を変えた場合のみ）
+- `_backup_2026_new_upload_01/_generate_qr.py` の `URL = "..."` を編集
+- `python _backup_2026_new_upload_01/_generate_qr.py` を実行
+- `assets/qr_shibuya_web_archive.png` / `.svg` が上書きされる → commit & push
 
-### Netlify
-- このフォルダごと drag & drop でアップロード
-- ビルド設定不要（Build command: 空 / Publish directory: `.`）
+### 6-5. リポジトリ About 欄（GitHub 画面右上の歯車 ⚙ をクリック）
+コピペ用：
+- **Description**: `Shibuya After the Last Train — terminal-night observation interface and urban furniture archive (architecture research, 2026).`
+- **Website**: `https://yuya-st-arch.github.io/shibuya-after-last-train/`
+- **Topics**: `architecture` `urban-research` `shibuya` `editorial` `static-site` `field-notes` `github-pages`
 
-どちらの場合も、`assets/` は **そのままコミット**して問題ない（個人プロジェクトかつ撮影者の権利範囲内であれば）。動画サイズが気になる場合は `assets/videos/selected/` 以下だけコミットして `raw/` は `.gitignore` するのも可。
+### 6-6. 公開してはいけない素材（`.gitignore` で除外済み）
+- `assets/photos/raw/`、`assets/videos/raw/` — 高解像度原本（重い + EXIF/GPS あり）
+- `assets/photos/review_needed/` — 顔が判別できる写真（privacy）
+- `data/_review_needed.json`、`data/import_log.json` — 内部ログ
+- `_backup_*/`、`.env*`、`.claude/`、`secrets.json`
 
 ## 7. 元素材フォルダの扱い（重要）
 
