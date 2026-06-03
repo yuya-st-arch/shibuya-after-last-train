@@ -148,11 +148,17 @@ git init
 git add .
 git commit -m "Initial: Claude Code edition"
 git branch -M main
-# 自分のリポジトリを作成して push
-git remote add origin git@github.com:<user>/shibuya-after-last-train-claude.git
+# public repository: https://github.com/yuya-st-arch/shibuya-after-last-train
+git remote add origin https://github.com/yuya-st-arch/shibuya-after-last-train.git
 git push -u origin main
 ```
 GitHub の Settings → Pages → Source = `main` / `/(root)` を選択。
+
+公開URL:
+
+```text
+https://yuya-st-arch.github.io/shibuya-after-last-train/
+```
 
 ### Netlify
 - このフォルダごと drag & drop でアップロード
