@@ -7,6 +7,7 @@
   "works": [
     {
       "id": "work1",
+      "visible": true,
       "number": "01",
       "title": "STEEL FOLDING CHAIR",
       "subtitle": "スチール折りたたみ椅子",
@@ -27,6 +28,7 @@
     },
     {
       "id": "work2",
+      "visible": true,
       "number": "02",
       "title": "CLAMP SHELF",
       "subtitle": "木の板とクランプの棚",
@@ -49,6 +51,7 @@
     },
     {
       "id": "work3",
+      "visible": true,
       "number": "03",
       "title": "RAIL-FRAME CHAIR",
       "subtitle": "鋼材と布のイス",

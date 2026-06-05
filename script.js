@@ -736,41 +736,41 @@
   function buildWorkFigure(src, caption, alt, opts) {
     opts = opts || {};
     const fig = el("figure", { class: "work-figure" + (opts.detail ? " work-figure--detail" : "") });
-    const placeholder = el("div", { class: "work-image-pending" }, [
-      el("strong", { text: opts.pendingLabel || "画像準備中 / Image pending" }),
-      el("span", { text: "このパスに画像を置くと表示されます" }),
-      el("code", { text: src })
-    ]);
-    if (opts.pending) {
-      fig.appendChild(placeholder);
-    } else {
-      const img = document.createElement("img");
-      img.src = src;
-      img.alt = alt || caption || "";
-      img.loading = "lazy";
-      img.decoding = "async";
-      img.addEventListener("error", () => {
-        // graceful fallback to placeholder if file is missing
-        if (!fig.querySelector(".work-image-pending")) {
-          img.remove();
-          fig.insertBefore(placeholder, fig.firstChild);
-        }
-      });
-      fig.appendChild(img);
-    }
+    const img = document.createElement("img");
+    img.src = src;
+    img.alt = alt || caption || "";
+    img.loading = "lazy";
+    img.decoding = "async";
+    fig.appendChild(img);
     if (caption) fig.appendChild(el("figcaption", { text: caption }));
-    return fig;
+    return { fig: fig, img: img };
+  }
+
+  // Hide the #works section entirely if no card is currently visible.
+  function reconcileWorksVisibility() {
+    const root = $("#works-list");
+    const sec = $("#works");
+    if (!root || !sec) return;
+    const anyVisible = $$(".work-card", root).some(c => c.style.display !== "none");
+    sec.style.display = anyVisible ? "" : "none";
   }
 
   function renderWorks(data) {
     const root = $("#works-list");
+    const sec = $("#works");
     if (!root) return;
-    const works = (data && data.works) || [];
+
+    // Completeness gate: only publish works that are explicitly visible AND
+    // have a real main image path. No placeholders / "coming soon" are shown.
+    const works = ((data && data.works) || []).filter(w =>
+      w && w.visible !== false && !w.image_pending && !!w.image
+    );
+
     if (!works.length) {
-      const sec = $("#works");
       if (sec) sec.style.display = "none";
       return;
     }
+    if (sec) sec.style.display = "";
 
     // section head text from meta (optional override)
     if (data.meta) {
@@ -781,18 +781,16 @@
 
     root.innerHTML = "";
     works.forEach(w => {
-      // visual column: main figure (+ optional detail figure for work2)
+      // visual column: main figure (+ optional detail figure)
       const visual = el("div", { class: "work-visual" });
-      visual.appendChild(buildWorkFigure(w.image, w.image_caption, w.image_alt, {
-        pending: !!w.image_pending,
-        pendingLabel: "メイン画像 準備中"
-      }));
+      const cardImgs = [];
+      const main = buildWorkFigure(w.image, w.image_caption, w.image_alt, {});
+      visual.appendChild(main.fig);
+      cardImgs.push(main.img);
       if (w.detail_image) {
-        visual.appendChild(buildWorkFigure(w.detail_image, w.detail_caption, w.detail_alt, {
-          detail: true,
-          pending: !!w.image_pending,
-          pendingLabel: "ディテール画像 準備中"
-        }));
+        const det = buildWorkFigure(w.detail_image, w.detail_caption, w.detail_alt, { detail: true });
+        visual.appendChild(det.fig);
+        cardImgs.push(det.img);
       }
 
       // body column
@@ -822,10 +820,21 @@
       const card = el("article", { class: "work-card reveal", dataset: { work: w.id || "" } }, [
         visual, body
       ]);
+
+      // Runtime safety net: if any required image fails to load (missing file),
+      // hide the whole card so an incomplete work never appears.
+      cardImgs.forEach(im => {
+        im.addEventListener("error", () => {
+          card.style.display = "none";
+          reconcileWorksVisibility();
+        });
+      });
+
       root.appendChild(card);
     });
 
     observeReveals();
+    reconcileWorksVisibility();
   }
 
   /* ---------------- Render: drawings ---------------- */
@@ -1353,6 +1362,18 @@
   }
 
   /* ---------------- Init ---------------- */
+  /* ---------------- Section visibility (hide incomplete sections) ---------------- */
+  // Data-driven: site_content.json "hidden_sections": ["prototypes","drawings"].
+  // Hides the section element, its index-nav link, and keeps it hidden in
+  // Presentation Mode (inline display:none wins). Reversible via the JSON.
+  function applyHiddenSections(ids) {
+    (ids || []).forEach(id => {
+      const sec = document.getElementById(id);
+      if (sec) sec.style.display = "none";
+      $$('.index-nav a[href="#' + id + '"]').forEach(a => { a.style.display = "none"; });
+    });
+  }
+
   async function init() {
     const [content, photos, videos, archive, classification, works] = await Promise.all([
       loadJSON("data/site_content.json", FALLBACK_CONTENT),
@@ -1390,6 +1411,10 @@
     bindBoardMode();
     bindPresentation();
     bindBackTop();
+
+    // Hide sections whose materials are not ready (prototypes / drawings).
+    // Defaults to hiding both even under fallback content.
+    applyHiddenSections(content.hidden_sections || ["prototypes", "drawings"]);
 
     observeReveals();
   }
