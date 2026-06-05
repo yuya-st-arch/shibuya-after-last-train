@@ -1900,7 +1900,12 @@ body.presentation .hero-title h1 { font-size: clamp(72px, 14vw, 240px); }
 .work-figure--detail {
   margin-top: 14px;
 }
-.work-figure--detail img { max-height: 360px; object-fit: cover; }
+.work-figure--detail img {
+  max-height: 460px;
+  object-fit: contain;
+  background: #050506;
+  margin: 0 auto;
+}
 
 .work-image-pending {
   aspect-ratio: 4 / 3;

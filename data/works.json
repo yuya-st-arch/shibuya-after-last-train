@@ -45,8 +45,7 @@
         ["時間帯", "終電後〜始発"]
       ],
       "keywords": ["clamp", "plywood", "guardrail", "temporary shelf", "urban furniture", "night-time publicness"],
-      "status": "field",
-      "image_pending": true
+      "status": "field"
     },
     {
       "id": "work3",
