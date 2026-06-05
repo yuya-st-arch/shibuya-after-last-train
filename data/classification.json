@@ -1,0 +1,371 @@
+{
+  "meta": {
+    "title": "13 Urban Parts × 7 Night Behaviors",
+    "subtitle": "写真根拠付き仮説 v2",
+    "status": "photo-evidence-backed hypothesis v2",
+    "note": "終電後の渋谷で観察された都市部材と夜間行為の交差。最終観察データではなく、写真339枚の代表選定を根拠とした仮説。",
+    "source_of_truth": [
+      "cross_table_v2_real_evidence_update/02_urban_parts_behavior_cross_table_v2",
+      "urban_part_catalog_v1/01_urban_part_catalog_13cards"
+    ]
+  },
+  "behaviors": [
+    { "id": "wait",      "label": "待つ" },
+    { "id": "sit",       "label": "座る" },
+    { "id": "nap",       "label": "仮眠" },
+    { "id": "work",      "label": "働く" },
+    { "id": "alert",     "label": "警戒" },
+    { "id": "eat",       "label": "食べる" },
+    { "id": "cool_down", "label": "酔い冷まし" }
+  ],
+  "legend": [
+    { "mark": "◎", "label": "写真根拠が強く、設計化の主候補" },
+    { "mark": "○", "label": "成立しやすい" },
+    { "mark": "△", "label": "条件付き、または追加観察が必要" },
+    { "mark": "×", "label": "基本的に不向き、または禁止条件" }
+  ],
+  "display_order": [
+    "P07", "P01", "P05", "P13", "P10",
+    "P09", "P03", "P04",
+    "P02", "P06", "P08",
+    "P12", "P11"
+  ],
+  "furniture_palette": ["TARP PERCH", "BOLT LEANER", "SIGN BENCH", "FOLDING FRAME", "TARP SHELTER"],
+  "parts": [
+    {
+      "id": "P07",
+      "key": "shutter_front",
+      "label": "シャッター前",
+      "en_label": "Shutter Front",
+      "evidence_strength": "strong",
+      "strongest_behavior": "座る / 酔い冷まし",
+      "design_potential": "highest",
+      "furniture_candidates": ["TARP SHELTER", "FOLDING FRAME", "SIGN BENCH"],
+      "priority_note": "最重要。閉店後だけ現れる平坦な余白と大きな背後面が、座る・酔い冷まし・短時間退避を同時に成立させる。"
+    },
+    {
+      "id": "P01",
+      "key": "guardrail",
+      "label": "ガードレール",
+      "en_label": "Guardrail",
+      "evidence_strength": "strong",
+      "strongest_behavior": "座る / 酔い冷まし",
+      "design_potential": "high",
+      "furniture_candidates": ["TARP PERCH", "BOLT LEANER"],
+      "priority_note": "道路境界 + 水平材 + 身体を歩道側へ逃がす線。TARP PERCHの背後境界として強い。"
+    },
+    {
+      "id": "P05",
+      "key": "equipment_box",
+      "label": "設備箱",
+      "en_label": "Equipment Box",
+      "evidence_strength": "strong",
+      "strongest_behavior": "座る / 置く",
+      "design_potential": "high",
+      "furniture_candidates": ["SIGN BENCH", "TARP PERCH"],
+      "priority_note": "箱状面 + 壁際余白。設計時は設備点検範囲を優先する。"
+    },
+    {
+      "id": "P13",
+      "key": "temporary_sign",
+      "label": "仮設看板",
+      "en_label": "Temporary Sign",
+      "evidence_strength": "strong",
+      "strongest_behavior": "警戒 / 座る",
+      "design_potential": "high",
+      "furniture_candidates": ["SIGN BENCH", "FOLDING FRAME"],
+      "priority_note": "情報面 + 仮設フレーム + 境界表示。ベース・背板を座面/背当てに転用可能。"
+    },
+    {
+      "id": "P10",
+      "key": "pole",
+      "label": "ポール",
+      "en_label": "Pole",
+      "evidence_strength": "strong",
+      "strongest_behavior": "待つ / 警戒",
+      "design_potential": "medium-high",
+      "furniture_candidates": ["BOLT LEANER"],
+      "priority_note": "立ち止まりの目印。立ったまま身体を預ける支点。座面化はしない。"
+    },
+    {
+      "id": "P09",
+      "key": "loading_entrance",
+      "label": "搬入口",
+      "en_label": "Loading Entrance",
+      "evidence_strength": "medium",
+      "strongest_behavior": "警戒 / 待つ",
+      "design_potential": "medium",
+      "furniture_candidates": ["FOLDING FRAME", "TARP SHELTER"],
+      "priority_note": "半屋外境界。搬入時間外なら成立。"
+    },
+    {
+      "id": "P03",
+      "key": "step",
+      "label": "段差",
+      "en_label": "Step",
+      "evidence_strength": "medium",
+      "strongest_behavior": "座る（候補）",
+      "design_potential": "medium-high",
+      "furniture_candidates": ["SIGN BENCH", "TARP PERCH"],
+      "priority_note": "高さ実測後にSIGN BENCHへ接続。座る実写は不足。"
+    },
+    {
+      "id": "P04",
+      "key": "curb",
+      "label": "縁石",
+      "en_label": "Curb",
+      "evidence_strength": "medium",
+      "strongest_behavior": "警戒 / 座る",
+      "design_potential": "medium",
+      "furniture_candidates": ["SIGN BENCH"],
+      "priority_note": "車道側リスクが高い。座るより危険境界表示が主役。"
+    },
+    {
+      "id": "P02",
+      "key": "u_guard",
+      "label": "U字ガード",
+      "en_label": "U-Guard",
+      "evidence_strength": "weak",
+      "strongest_behavior": "待つ / 警戒",
+      "design_potential": "medium",
+      "furniture_candidates": ["BOLT LEANER", "FOLDING FRAME"],
+      "priority_note": "U字単体の明確写真不足。追加撮影後に評価更新。"
+    },
+    {
+      "id": "P06",
+      "key": "window_sill",
+      "label": "窓台",
+      "en_label": "Window Sill",
+      "evidence_strength": "weak",
+      "strongest_behavior": "働く / 食べる（仮説）",
+      "design_potential": "low-medium",
+      "furniture_candidates": ["TARP PERCH", "SIGN BENCH"],
+      "priority_note": "身体利用未確認。私有境界が強い。"
+    },
+    {
+      "id": "P08",
+      "key": "sign_back",
+      "label": "看板裏",
+      "en_label": "Sign Back",
+      "evidence_strength": "weak",
+      "strongest_behavior": "警戒 / 酔い冷まし（仮説）",
+      "design_potential": "medium",
+      "furniture_candidates": ["TARP SHELTER", "SIGN BENCH"],
+      "priority_note": "裏側利用未確認。TARP SHELTERの遮蔽ルールに使うが後日撮影必須。"
+    },
+    {
+      "id": "P12",
+      "key": "pipe",
+      "label": "配管",
+      "en_label": "Pipe",
+      "evidence_strength": "weak",
+      "strongest_behavior": "警戒（目印）",
+      "design_potential": "prohibited-support",
+      "furniture_candidates": [],
+      "priority_note": "支持体化禁止。荷重不明。BOLT LEANERの支柱として使わない。",
+      "do_not": ["支持体化"]
+    },
+    {
+      "id": "P11",
+      "key": "ac_unit",
+      "label": "室外機",
+      "en_label": "AC Unit",
+      "evidence_strength": "weak",
+      "strongest_behavior": "避ける条件",
+      "design_potential": "prohibited-condition",
+      "furniture_candidates": [],
+      "priority_note": "家具化対象ではなく離隔・禁止条件。発熱・騒音・衛生・保守の全方向で不可。",
+      "do_not": ["上面利用", "近接座面", "天板化"]
+    }
+  ],
+  "matrix": {
+    "P01": {
+      "wait":      { "mark": "○", "reason": "道路境界で立ち止まる位置を作る。" },
+      "sit":       { "mark": "◎", "reason": "水平材・境界を背後にして半座り／椅子置きが成立。" },
+      "nap":       { "mark": "△", "reason": "車道側リスクが強く、横になるのは厳しい。" },
+      "work":      { "mark": "△", "reason": "スマホ程度なら可、作業面は不足。" },
+      "alert":     { "mark": "◎", "reason": "車道側を読みながら身体を逃がせる。" },
+      "eat":       { "mark": "△", "reason": "片手食べ程度。置き面が不足。" },
+      "cool_down": { "mark": "◎", "reason": "境界にもたれて呼吸を整える場所になりやすい。" }
+    },
+    "P02": {
+      "wait":      { "mark": "○", "reason": "歩車境界の目印にはなる。" },
+      "sit":       { "mark": "△", "reason": "座面化には追加材が必要。写真根拠が弱い。" },
+      "nap":       { "mark": "×", "reason": "狭く危険。" },
+      "work":      { "mark": "△", "reason": "スマホ程度。" },
+      "alert":     { "mark": "○", "reason": "v1の◎を、U字単体の根拠不足で○へ下げた。" },
+      "eat":       { "mark": "△", "reason": "立ち食い補助程度。" },
+      "cool_down": { "mark": "○", "reason": "寄る候補はあるが長時間は弱い。" }
+    },
+    "P03": {
+      "wait":      { "mark": "○", "reason": "靴を止める境界として読める。" },
+      "sit":       { "mark": "○", "reason": "高さが合えば◎候補だが座る実写不足。" },
+      "nap":       { "mark": "△", "reason": "幅と背面がある場合のみ。" },
+      "work":      { "mark": "△", "reason": "膝上スマホ程度。" },
+      "alert":     { "mark": "△", "reason": "低姿勢で警戒性は落ちる。" },
+      "eat":       { "mark": "△", "reason": "腰掛け食べは追加観察が必要。" },
+      "cool_down": { "mark": "○", "reason": "低く座る候補。動線との距離次第。" }
+    },
+    "P04": {
+      "wait":      { "mark": "○", "reason": "道路端の待機境界になる。" },
+      "sit":       { "mark": "○", "reason": "候補写真あり。ただし車道側リスク。" },
+      "nap":       { "mark": "×", "reason": "車道近接で不可。" },
+      "work":      { "mark": "×", "reason": "作業面なし。" },
+      "alert":     { "mark": "◎", "reason": "危険境界としての読み取りが強い。" },
+      "eat":       { "mark": "△", "reason": "衛生・安全の制約が強い。" },
+      "cool_down": { "mark": "○", "reason": "低く退避する候補。車道側を避ける。" }
+    },
+    "P05": {
+      "wait":      { "mark": "○", "reason": "壁際の待機点になる。" },
+      "sit":       { "mark": "◎", "reason": "箱状物の横で座る／置く構成が読める。" },
+      "nap":       { "mark": "△", "reason": "占有が強く設備保守と衝突。" },
+      "work":      { "mark": "○", "reason": "置き面候補。実作業写真はなし。" },
+      "alert":     { "mark": "○", "reason": "背後を箱に預けて前方確認できる。" },
+      "eat":       { "mark": "○", "reason": "置き面候補は強いが食べる実写は不足。" },
+      "cool_down": { "mark": "○", "reason": "壁際で落ち着く。熱・騒音は要確認。" }
+    },
+    "P06": {
+      "wait":      { "mark": "△", "reason": "部材写真はあるが身体利用なし。" },
+      "sit":       { "mark": "△", "reason": "高さが合えば候補。写真根拠弱。" },
+      "nap":       { "mark": "×", "reason": "幅不足・私有境界が強い。" },
+      "work":      { "mark": "△", "reason": "カウンター化は仮説。写真上は断定不可。" },
+      "alert":     { "mark": "△", "reason": "背後警戒が弱い。" },
+      "eat":       { "mark": "△", "reason": "置き面候補だが実写なし。" },
+      "cool_down": { "mark": "△", "reason": "建物際で落ち着く候補。占有感が強い。" }
+    },
+    "P07": {
+      "wait":      { "mark": "◎", "reason": "閉店後の平らな余白として待てる。" },
+      "sit":       { "mark": "◎", "reason": "背後の大面に守られ、座る行為が強い。" },
+      "nap":       { "mark": "○", "reason": "仮眠の直接写真はなし。短時間横になる候補。" },
+      "work":      { "mark": "○", "reason": "壁際でスマホ・荷物整理がしやすい。" },
+      "alert":     { "mark": "○", "reason": "背後保護は強いが逃げ道は横方向に限定。" },
+      "eat":       { "mark": "○", "reason": "写真では断定不可。雨風を避ける短時間利用候補。" },
+      "cool_down": { "mark": "◎", "reason": "人通りから退き、酔いを冷ます場所になりやすい。" }
+    },
+    "P08": {
+      "wait":      { "mark": "○", "reason": "看板面の候補写真あり。" },
+      "sit":       { "mark": "△", "reason": "座面写真なし。追加フレームが必要。" },
+      "nap":       { "mark": "△", "reason": "遮蔽は候補だが安全確認が必要。" },
+      "work":      { "mark": "△", "reason": "明るさ・置き面は未確認。" },
+      "alert":     { "mark": "○", "reason": "v1の◎を、裏側利用写真が弱いため一段下げ。" },
+      "eat":       { "mark": "△", "reason": "衛生・防犯に注意。" },
+      "cool_down": { "mark": "○", "reason": "光・人混みから退く候補。" }
+    },
+    "P09": {
+      "wait":      { "mark": "○", "reason": "奥まりと時間限定性が読める。" },
+      "sit":       { "mark": "△", "reason": "座る実写なし。荷捌き段差があれば候補。" },
+      "nap":       { "mark": "△", "reason": "車両出入りリスクが強い。" },
+      "work":      { "mark": "○", "reason": "屋根・照明があれば軽作業候補。" },
+      "alert":     { "mark": "◎", "reason": "半屋外境界として前後を分けやすい。" },
+      "eat":       { "mark": "△", "reason": "清潔感・管理境界が課題。" },
+      "cool_down": { "mark": "○", "reason": "人通りから退く候補。" }
+    },
+    "P10": {
+      "wait":      { "mark": "◎", "reason": "待ち合わせ・立ち止まりの目印。" },
+      "sit":       { "mark": "×", "reason": "単体では座れない。座面化しない。" },
+      "nap":       { "mark": "×", "reason": "身体を支える面がない。" },
+      "work":      { "mark": "△", "reason": "片手スマホや荷物掛け程度。" },
+      "alert":     { "mark": "◎", "reason": "立ったまま周囲確認しやすい。" },
+      "eat":       { "mark": "△", "reason": "立ち食いの一時支点程度。" },
+      "cool_down": { "mark": "○", "reason": "もたれる・掴む候補。" }
+    },
+    "P11": {
+      "wait":      { "mark": "△", "reason": "壁際の物体にはなる。" },
+      "sit":       { "mark": "×", "reason": "上面利用は避ける。保守・熱・破損リスク。" },
+      "nap":       { "mark": "×", "reason": "発熱・騒音・衛生面で不可。" },
+      "work":      { "mark": "×", "reason": "設備保守と衝突。" },
+      "alert":     { "mark": "△", "reason": "背後の物体として読む程度。" },
+      "eat":       { "mark": "×", "reason": "熱風・衛生面で不可。" },
+      "cool_down": { "mark": "×", "reason": "熱源になりやすく逆行。" }
+    },
+    "P12": {
+      "wait":      { "mark": "△", "reason": "壁際の目印にはなる。" },
+      "sit":       { "mark": "×", "reason": "荷重不明。座面不可。" },
+      "nap":       { "mark": "×", "reason": "支持不可。" },
+      "work":      { "mark": "×", "reason": "作業面不可。" },
+      "alert":     { "mark": "△", "reason": "身体利用写真がないため一段下げ。" },
+      "eat":       { "mark": "×", "reason": "衛生・安全面で不可。" },
+      "cool_down": { "mark": "△", "reason": "壁際に寄るきっかけ程度。" }
+    },
+    "P13": {
+      "wait":      { "mark": "○", "reason": "情報・店先・工事境界に人が留まりやすい。" },
+      "sit":       { "mark": "○", "reason": "ベース／背板を座面や背当てへ転用可能。" },
+      "nap":       { "mark": "△", "reason": "囲いを複数化する場合のみ。" },
+      "work":      { "mark": "○", "reason": "掲示面・立て掛け面を短時間作業に使う候補。" },
+      "alert":     { "mark": "◎", "reason": "注意喚起・境界表示として強い。" },
+      "eat":       { "mark": "○", "reason": "小天板化なら候補。実食写真は不足。" },
+      "cool_down": { "mark": "○", "reason": "背後を作り、人混みから退く候補。" }
+    }
+  },
+  "conversion_priority": [
+    {
+      "priority": 1,
+      "part_id": "P07",
+      "logic": "閉店後だけ現れる平坦な余白 + 大きな背後面",
+      "behaviors": ["座る", "酔い冷まし", "短時間退避"],
+      "furniture_candidates": ["TARP SHELTER", "FOLDING FRAME"],
+      "is_anchor": true
+    },
+    {
+      "priority": 2,
+      "part_id": "P01",
+      "logic": "道路境界 + 水平材 + 身体を歩道側へ逃がす線",
+      "behaviors": ["座る", "酔い冷まし", "警戒"],
+      "furniture_candidates": ["TARP PERCH", "BOLT LEANER"]
+    },
+    {
+      "priority": 3,
+      "part_id": "P05",
+      "logic": "箱状面 + 壁際余白。ただし点検範囲を優先",
+      "behaviors": ["座る", "置く"],
+      "furniture_candidates": ["SIGN BENCH", "TARP PERCH"]
+    },
+    {
+      "priority": 4,
+      "part_id": "P13",
+      "logic": "情報面 + 仮設フレーム + 境界表示",
+      "behaviors": ["警戒", "座る"],
+      "furniture_candidates": ["SIGN BENCH", "FOLDING FRAME"]
+    },
+    {
+      "priority": 5,
+      "part_id": "P10",
+      "logic": "立ち止まりの目印 + 立ったまま身体を預ける支点",
+      "behaviors": ["待つ", "警戒"],
+      "furniture_candidates": ["BOLT LEANER"]
+    }
+  ],
+  "furniture_mappings": [
+    {
+      "name": "TARP PERCH",
+      "source_parts": ["P01", "P03", "P05", "P06"],
+      "source_behaviors": ["座る", "待つ", "酔い冷まし"]
+    },
+    {
+      "name": "BOLT LEANER",
+      "source_parts": ["P10", "P01", "P02"],
+      "source_behaviors": ["待つ", "警戒", "酔い冷まし"],
+      "warning": "P12配管は支持体として使用しない"
+    },
+    {
+      "name": "SIGN BENCH",
+      "source_parts": ["P13", "P05", "P03", "P04", "P08"],
+      "source_behaviors": ["座る", "食べる", "待つ", "警戒"]
+    },
+    {
+      "name": "FOLDING FRAME",
+      "source_parts": ["P07", "P09", "P13", "P02"],
+      "source_behaviors": ["待つ", "警戒", "座る", "働く"]
+    },
+    {
+      "name": "TARP SHELTER",
+      "source_parts": ["P07", "P08", "P09", "P01"],
+      "source_behaviors": ["酔い冷まし", "待つ", "短時間退避", "仮眠候補"]
+    }
+  ],
+  "design_break": {
+    "label": "Research → Design",
+    "kicker": "ここから設計",
+    "lead": "行為をそのまま家具にするのではなく、既存の都市部材に擬態させる。"
+  }
+}

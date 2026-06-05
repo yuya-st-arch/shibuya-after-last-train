@@ -876,6 +876,27 @@
     map.forEach((_, sec) => io.observe(sec));
   }
 
+  /* ---------------- Board mode header ---------------- */
+  function bindBoardMode() {
+    const hero = $("#hero");
+    if (!hero) return;
+    let raf;
+    function update() {
+      const threshold = hero.offsetHeight * 0.78;
+      document.body.classList.toggle("board-mode", window.scrollY > threshold);
+    }
+    const requestUpdate = () => {
+      if (raf) return;
+      raf = requestAnimationFrame(() => {
+        raf = null;
+        update();
+      });
+    };
+    window.addEventListener("scroll", requestUpdate, { passive: true });
+    window.addEventListener("resize", requestUpdate);
+    update();
+  }
+
   /* ---------------- Presentation mode ---------------- */
   function bindPresentation() {
     const btn = $("#presentation-toggle");
@@ -949,13 +970,298 @@
     if (node) node.textContent = text;
   }
 
+  /* ---------------- 05B / Classification Matrix ---------------- */
+  const FALLBACK_CLASSIFICATION = {
+    meta: { title: "13 Urban Parts × 7 Night Behaviors", status: "photo-evidence-backed hypothesis v2", subtitle: "写真根拠付き仮説 v2" },
+    behaviors: [
+      { id: "wait", label: "待つ" }, { id: "sit", label: "座る" },
+      { id: "nap", label: "仮眠" }, { id: "work", label: "働く" },
+      { id: "alert", label: "警戒" }, { id: "eat", label: "食べる" },
+      { id: "cool_down", label: "酔い冷まし" }
+    ],
+    legend: [
+      { mark: "◎", label: "写真根拠が強い主候補" },
+      { mark: "○", label: "成立しやすい" },
+      { mark: "△", label: "条件付き／追加観察必要" },
+      { mark: "×", label: "不向き／禁止条件" }
+    ],
+    display_order: ["P07","P01","P05","P13","P10","P09","P03","P04","P02","P06","P08","P12","P11"],
+    furniture_palette: ["TARP PERCH","BOLT LEANER","SIGN BENCH","FOLDING FRAME","TARP SHELTER"],
+    parts: [],
+    matrix: {},
+    conversion_priority: [],
+    furniture_mappings: [],
+    design_break: {
+      label: "Research → Design",
+      kicker: "ここから設計",
+      lead: "行為をそのまま家具にするのではなく、既存の都市部材に擬態させる。"
+    }
+  };
+
+  let _cls = FALLBACK_CLASSIFICATION;
+  let _clsFilter = { behavior: "all", evidence: "all", furniture: "all" };
+
+  function renderClassification(data) {
+    if (!data || !data.parts || !data.parts.length) {
+      const sec = $("#classification");
+      if (sec) sec.style.display = "none";
+      return;
+    }
+    _cls = data;
+
+    // status badge
+    const statusEl = $("#cls-status");
+    if (statusEl) {
+      statusEl.textContent = (data.meta && (data.meta.subtitle || data.meta.status)) || "";
+    }
+
+    // legend
+    const legendRoot = $("#cls-legend");
+    if (legendRoot) {
+      legendRoot.innerHTML = "";
+      (data.legend || []).forEach(l => {
+        const item = el("span", { class: "cls-legend-item", dataset: { mark: l.mark } }, [
+          el("span", { class: "cls-legend-mark", text: l.mark }),
+          el("span", { text: l.label })
+        ]);
+        legendRoot.appendChild(item);
+      });
+    }
+
+    // filters
+    renderClsFilters();
+
+    // matrix
+    renderClsMatrix();
+
+    // priority list
+    renderClsPriority();
+
+    // detail close
+    const det = $("#cls-detail");
+    if (det) {
+      det.addEventListener("click", e => {
+        if (e.target.matches("[data-cls-close]")) {
+          det.hidden = true;
+          $$(".cls-cell.is-focused").forEach(c => c.classList.remove("is-focused"));
+        }
+      });
+    }
+  }
+
+  function renderClsFilters() {
+    const beh = $("#cls-filter-behavior");
+    if (beh) {
+      beh.innerHTML = "";
+      [{ id: "all", label: "All" }].concat(_cls.behaviors || []).forEach(b => {
+        const btn = el("button", {
+          type: "button",
+          class: "cls-chip" + (b.id === _clsFilter.behavior ? " is-active" : ""),
+          dataset: { v: b.id }
+        }, [document.createTextNode(b.label)]);
+        btn.addEventListener("click", () => { _clsFilter.behavior = b.id; applyClsFilters(); });
+        beh.appendChild(btn);
+      });
+    }
+
+    const ev = $("#cls-filter-evidence");
+    if (ev) {
+      ev.innerHTML = "";
+      const evOpts = [
+        { id: "all",    label: "All" },
+        { id: "strong", label: "強" },
+        { id: "medium", label: "中" },
+        { id: "weak",   label: "弱" }
+      ];
+      evOpts.forEach(o => {
+        const btn = el("button", {
+          type: "button",
+          class: "cls-chip" + (o.id === _clsFilter.evidence ? " is-active" : ""),
+          dataset: { v: o.id }
+        }, [document.createTextNode(o.label)]);
+        btn.addEventListener("click", () => { _clsFilter.evidence = o.id; applyClsFilters(); });
+        ev.appendChild(btn);
+      });
+    }
+
+    const fu = $("#cls-filter-furniture");
+    if (fu) {
+      fu.innerHTML = "";
+      [{ id: "all", label: "All" }].concat(
+        (_cls.furniture_palette || []).map(n => ({ id: n, label: n }))
+      ).forEach(o => {
+        const btn = el("button", {
+          type: "button",
+          class: "cls-chip" + (o.id === _clsFilter.furniture ? " is-active" : ""),
+          dataset: { v: o.id }
+        }, [document.createTextNode(o.label)]);
+        btn.addEventListener("click", () => { _clsFilter.furniture = o.id; applyClsFilters(); });
+        fu.appendChild(btn);
+      });
+    }
+  }
+
+  function renderClsMatrix() {
+    const head = $("#cls-matrix-head");
+    const body = $("#cls-matrix-body");
+    if (!head || !body) return;
+
+    head.innerHTML = "";
+    head.appendChild(el("th", { class: "cls-th-id", text: "Urban Part" }));
+    (_cls.behaviors || []).forEach(b => {
+      head.appendChild(el("th", { dataset: { behavior: b.id }, text: b.label }));
+    });
+
+    body.innerHTML = "";
+    const partsById = Object.fromEntries((_cls.parts || []).map(p => [p.id, p]));
+    const order = _cls.display_order && _cls.display_order.length
+      ? _cls.display_order
+      : (_cls.parts || []).map(p => p.id);
+    const anchorPart = ((_cls.conversion_priority || []).find(x => x.is_anchor) || {}).part_id;
+
+    order.forEach(pid => {
+      const part = partsById[pid];
+      if (!part) return;
+      const tr = document.createElement("tr");
+      tr.dataset.part = pid;
+      tr.dataset.evidence = part.evidence_strength || "";
+      tr.dataset.furniture = (part.furniture_candidates || []).join("|");
+      if (pid === anchorPart) tr.classList.add("is-anchor");
+      if ((part.design_potential || "").indexOf("prohibited") === 0) tr.classList.add("is-prohibited");
+
+      const th = document.createElement("th");
+      th.scope = "row";
+      th.appendChild(el("span", { class: "cls-part-id", text: part.id }));
+      th.appendChild(document.createTextNode(part.label));
+      tr.appendChild(th);
+
+      (_cls.behaviors || []).forEach(b => {
+        const cell = ((_cls.matrix || {})[pid] || {})[b.id] || { mark: "—", reason: "" };
+        const td = document.createElement("td");
+        td.className = "cls-cell";
+        td.dataset.part = pid;
+        td.dataset.behavior = b.id;
+        td.dataset.mark = cell.mark;
+        td.dataset.reason = cell.reason || "";
+        td.textContent = cell.mark;
+        td.setAttribute("aria-label",
+          `${part.label} × ${b.label}: ${cell.mark} ${cell.reason || ""}`);
+        td.tabIndex = 0;
+        td.addEventListener("click", () => openClsDetail(part, b, cell, td));
+        td.addEventListener("keydown", e => {
+          if (e.key === "Enter" || e.key === " ") {
+            e.preventDefault();
+            openClsDetail(part, b, cell, td);
+          }
+        });
+        tr.appendChild(td);
+      });
+      body.appendChild(tr);
+    });
+
+    applyClsFilters();
+  }
+
+  function applyClsFilters() {
+    // chip active states
+    [["behavior", "#cls-filter-behavior"], ["evidence", "#cls-filter-evidence"], ["furniture", "#cls-filter-furniture"]]
+      .forEach(([k, sel]) => {
+        $$(`${sel} .cls-chip`).forEach(b => {
+          b.classList.toggle("is-active", b.dataset.v === _clsFilter[k]);
+        });
+      });
+
+    const fBehavior = _clsFilter.behavior;
+    const fEvidence = _clsFilter.evidence;
+    const fFurniture = _clsFilter.furniture;
+
+    // rows
+    $$("#cls-matrix-body tr").forEach(tr => {
+      const evOk = fEvidence === "all" || tr.dataset.evidence === fEvidence;
+      const fuOk = fFurniture === "all" || (tr.dataset.furniture || "").split("|").indexOf(fFurniture) !== -1;
+      tr.style.display = (evOk && fuOk) ? "" : "none";
+    });
+
+    // cell dimming by behavior column
+    $$("#cls-matrix-body .cls-cell").forEach(td => {
+      const ok = fBehavior === "all" || td.dataset.behavior === fBehavior;
+      td.classList.toggle("is-dim", !ok);
+    });
+
+    // header column dim
+    $$("#cls-matrix-head th[data-behavior]").forEach(th => {
+      const ok = fBehavior === "all" || th.dataset.behavior === fBehavior;
+      th.style.opacity = ok ? "1" : "0.35";
+    });
+  }
+
+  function openClsDetail(part, behavior, cell, cellEl) {
+    const det = $("#cls-detail");
+    if (!det) return;
+    $$(".cls-cell.is-focused").forEach(c => c.classList.remove("is-focused"));
+    if (cellEl) cellEl.classList.add("is-focused");
+
+    const markMap = Object.fromEntries(((_cls.legend) || []).map(l => [l.mark, l.label]));
+    $("#cls-detail-meta").textContent = `${part.id} · ${part.label} × ${behavior.label}`;
+    $("#cls-detail-title").textContent = part.label + " × " + behavior.label;
+    $("#cls-detail-mark").textContent = cell.mark;
+    $("#cls-detail-mark-label").textContent = markMap[cell.mark] || "";
+    $("#cls-detail-reason").textContent = cell.reason || "—";
+
+    const extra = $("#cls-detail-extra");
+    if (extra) {
+      extra.innerHTML = "";
+      const rows = [
+        ["Evidence", part.evidence_strength || "—"],
+        ["Strongest", part.strongest_behavior || "—"],
+        ["Furniture", (part.furniture_candidates || []).join(" / ") || "—"],
+        ["Design Potential", part.design_potential || "—"]
+      ];
+      if (part.priority_note) rows.push(["Note", part.priority_note]);
+      if (part.do_not && part.do_not.length) rows.push(["Do not", part.do_not.join(" / ")]);
+      rows.forEach(([k, v]) => {
+        extra.appendChild(el("dt", { text: k }));
+        extra.appendChild(el("dd", { text: v }));
+      });
+    }
+    det.hidden = false;
+  }
+
+  function renderClsPriority() {
+    const root = $("#cls-priority-list");
+    if (!root) return;
+    root.innerHTML = "";
+    const partsById = Object.fromEntries((_cls.parts || []).map(p => [p.id, p]));
+    (_cls.conversion_priority || []).forEach(p => {
+      const part = partsById[p.part_id] || { label: p.part_id };
+      const li = document.createElement("li");
+      li.className = "cls-priority-item" + (p.is_anchor ? " is-anchor" : "");
+      li.appendChild(el("span", { class: "cls-priority-rank", text: "Priority " + String(p.priority).padStart(2, "0") + " · " + p.part_id }));
+      li.appendChild(el("p", { class: "cls-priority-name", text: part.label }));
+      li.appendChild(el("p", { class: "cls-priority-logic", text: p.logic || "" }));
+      const fur = el("div", { class: "cls-priority-fur" });
+      (p.furniture_candidates || []).forEach(name => {
+        fur.appendChild(el("span", { class: "cls-priority-tag", text: name }));
+      });
+      li.appendChild(fur);
+      li.addEventListener("click", () => {
+        const sec = $("#classification");
+        if (sec) sec.scrollIntoView({ behavior: "smooth", block: "start" });
+        const row = document.querySelector(`#cls-matrix-body tr[data-part="${p.part_id}"]`);
+        if (row) row.scrollIntoView({ behavior: "smooth", block: "center" });
+      });
+      root.appendChild(li);
+    });
+  }
+
   /* ---------------- Init ---------------- */
   async function init() {
-    const [content, photos, videos, archive] = await Promise.all([
+    const [content, photos, videos, archive, classification] = await Promise.all([
       loadJSON("data/site_content.json", FALLBACK_CONTENT),
       loadJSON("data/photo_manifest.json", FALLBACK_PHOTOS),
       loadJSON("data/video_manifest.json", FALLBACK_VIDEOS),
-      loadJSON("data/archive_manifest.json", FALLBACK_ARCHIVE)
+      loadJSON("data/archive_manifest.json", FALLBACK_ARCHIVE),
+      loadJSON("data/classification.json", FALLBACK_CLASSIFICATION)
     ]);
 
     bindHeroVideo(content.hero || {});
@@ -976,9 +1282,12 @@
     _archive = archive && archive.items ? archive : FALLBACK_ARCHIVE;
     renderArchive();
 
+    renderClassification(classification);
+
     bindModal();
     bindClock();
     bindNavHighlight();
+    bindBoardMode();
     bindPresentation();
     bindBackTop();
 

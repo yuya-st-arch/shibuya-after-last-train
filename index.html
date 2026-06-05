@@ -41,6 +41,7 @@
         <a href="#map"><span>03</span>Map</a>
         <a href="#field-notes"><span>04</span>Field</a>
         <a href="#archive"><span>05</span>Archive</a>
+        <a href="#classification"><span>05B</span>Classify</a>
         <a href="#transformation"><span>06</span>Transform</a>
         <a href="#prototypes"><span>07</span>Prototypes</a>
         <a href="#drawings"><span>08</span>Drawings</a>
@@ -136,30 +137,13 @@
           <h2 id="map-h" class="display-h">終電後の渋谷を読むためのフィールドマップ。</h2>
           <p class="section-lead">観察地点を線でつなぐことで、写真は単体の記録から、終電後の渋谷を読むための連続したフィールドワークへ変わる。</p>
         </div>
-        <div class="map-stage">
-          <div class="map-canvas" id="map-canvas" aria-label="Observation map placeholder">
-            <svg viewBox="0 0 1200 720" preserveAspectRatio="xMidYMid slice" class="map-svg">
-              <defs>
-                <pattern id="grid" width="60" height="60" patternUnits="userSpaceOnUse">
-                  <path d="M 60 0 L 0 0 0 60" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="1"/>
-                </pattern>
-              </defs>
-              <rect width="1200" height="720" fill="url(#grid)"/>
-              <!-- abstract streets -->
-              <path d="M 60 480 Q 360 380 600 420 T 1140 360" stroke="rgba(255,255,255,0.18)" stroke-width="2" fill="none"/>
-              <path d="M 200 60 Q 360 240 420 460 T 580 700" stroke="rgba(255,255,255,0.14)" stroke-width="2" fill="none"/>
-              <path d="M 720 60 Q 700 260 820 380 T 1140 520" stroke="rgba(255,255,255,0.12)" stroke-width="2" fill="none"/>
-              <path d="M 360 60 L 600 360 L 900 220" stroke="rgba(255,255,255,0.08)" stroke-width="1.5" fill="none" stroke-dasharray="4 6"/>
-              <!-- node halos -->
-              <g class="map-nodes" id="map-nodes"></g>
-              <!-- label: SHIBUYA STATION -->
-              <text x="600" y="420" fill="rgba(255,255,255,0.55)" font-family="JetBrains Mono" font-size="14" text-anchor="middle">SHIBUYA STATION</text>
-              <text x="600" y="438" fill="rgba(255,255,255,0.3)" font-family="JetBrains Mono" font-size="10" text-anchor="middle">35.6580°N 139.7016°E</text>
-            </svg>
-          </div>
+        <div class="map-stage map-stage--image">
+          <figure class="map-canvas" id="map-canvas">
+            <img class="map-image" src="assets/maps/night_observation_map_01.jpg" alt="A–H 採集マップ：家具になりかけている都市部材" loading="lazy">
+          </figure>
           <aside class="map-legend" id="map-legend" aria-label="Map legend"></aside>
         </div>
-        <p class="map-note">※ 本マップは観察記録の構造を示すための抽象的なプレースホルダー。本番素材は <code>assets/maps/night_observation_map_01.jpg</code> に差し替え。</p>
+        <p class="map-note">A–H は「椅子」そのものではなく、夜に身体を受け止め始める都市部材の採集。各点を評価マトリクス（<a href="#classification">05B</a>）に通し、TARP&nbsp;PERCH / BOLT&nbsp;LEANER / SIGN&nbsp;BENCH の設置条件へ変換する。</p>
       </section>
 
       <!-- ============ FIELD NOTES ============ -->
@@ -201,6 +185,63 @@
         <div class="archive-sheet" id="archive-sheet" aria-live="polite"></div>
         <p class="archive-empty" id="archive-empty" hidden>該当する標本がありません。</p>
         <p class="archive-foot">CONTACT SHEET · MATERIAL LIBRARY · 観察→家具化の翻訳源</p>
+      </section>
+
+      <!-- ============ CLASSIFICATION MATRIX (05B) ============ -->
+      <section class="block classification" id="classification" aria-labelledby="cls-h">
+        <div class="block-head cls-head">
+          <p class="section-no">05B / Classification Matrix</p>
+          <h2 id="cls-h" class="display-h">どの都市部材が、<br>どの夜間行為を受け止めるか。</h2>
+          <p class="section-lead">写真根拠付き仮説 v2。13の都市部材と7つの夜間行為を交差させ、どの部材がどの行為を支えうるかを記号で示す。最終観察データではなく、写真339枚の代表選定を根拠にした仮説。</p>
+          <p class="cls-status" id="cls-status"></p>
+        </div>
+
+        <div class="cls-controls">
+          <div class="cls-filter-group" data-filter="behavior">
+            <span class="cls-filter-label">Behavior</span>
+            <div class="cls-filter-row" id="cls-filter-behavior" role="tablist" aria-label="行為フィルター"></div>
+          </div>
+          <div class="cls-filter-group" data-filter="evidence">
+            <span class="cls-filter-label">Evidence</span>
+            <div class="cls-filter-row" id="cls-filter-evidence" role="tablist" aria-label="根拠強度"></div>
+          </div>
+          <div class="cls-filter-group" data-filter="furniture">
+            <span class="cls-filter-label">Furniture</span>
+            <div class="cls-filter-row" id="cls-filter-furniture" role="tablist" aria-label="家具候補"></div>
+          </div>
+        </div>
+
+        <div class="cls-legend" id="cls-legend" aria-label="凡例"></div>
+
+        <div class="cls-matrix-wrap">
+          <table class="cls-matrix" id="cls-matrix" aria-label="13 urban parts × 7 night behaviors">
+            <thead><tr id="cls-matrix-head"></tr></thead>
+            <tbody id="cls-matrix-body"></tbody>
+          </table>
+        </div>
+
+        <aside class="cls-detail" id="cls-detail" aria-live="polite" hidden>
+          <button type="button" class="cls-detail-close" aria-label="閉じる" data-cls-close>×</button>
+          <p class="cls-detail-meta" id="cls-detail-meta"></p>
+          <h3 id="cls-detail-title"></h3>
+          <p class="cls-detail-mark"><span id="cls-detail-mark"></span><span id="cls-detail-mark-label"></span></p>
+          <p class="cls-detail-reason" id="cls-detail-reason"></p>
+          <dl class="cls-detail-extra" id="cls-detail-extra"></dl>
+        </aside>
+
+        <section class="cls-priority" aria-labelledby="cls-priority-h">
+          <h3 id="cls-priority-h" class="cls-h3">Conversion Priority — 強5部材</h3>
+          <ol class="cls-priority-list" id="cls-priority-list"></ol>
+        </section>
+
+        <div class="cls-break" aria-hidden="true">
+          <span class="cls-break-line"></span>
+          <span class="cls-break-text">
+            <em>Research → Design</em>
+            <strong>ここから設計</strong>
+            <small>行為をそのまま家具にするのではなく、既存の都市部材に擬態させる。</small>
+          </span>
+        </div>
       </section>
 
       <!-- ============ TRANSFORMATION ============ -->
