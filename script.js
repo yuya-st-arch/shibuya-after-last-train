@@ -730,6 +730,104 @@
     });
   }
 
+  /* ---------------- Render: Design Works (07B) ---------------- */
+  const FALLBACK_WORKS = { meta: {}, works: [] };
+
+  function buildWorkFigure(src, caption, alt, opts) {
+    opts = opts || {};
+    const fig = el("figure", { class: "work-figure" + (opts.detail ? " work-figure--detail" : "") });
+    const placeholder = el("div", { class: "work-image-pending" }, [
+      el("strong", { text: opts.pendingLabel || "画像準備中 / Image pending" }),
+      el("span", { text: "このパスに画像を置くと表示されます" }),
+      el("code", { text: src })
+    ]);
+    if (opts.pending) {
+      fig.appendChild(placeholder);
+    } else {
+      const img = document.createElement("img");
+      img.src = src;
+      img.alt = alt || caption || "";
+      img.loading = "lazy";
+      img.decoding = "async";
+      img.addEventListener("error", () => {
+        // graceful fallback to placeholder if file is missing
+        if (!fig.querySelector(".work-image-pending")) {
+          img.remove();
+          fig.insertBefore(placeholder, fig.firstChild);
+        }
+      });
+      fig.appendChild(img);
+    }
+    if (caption) fig.appendChild(el("figcaption", { text: caption }));
+    return fig;
+  }
+
+  function renderWorks(data) {
+    const root = $("#works-list");
+    if (!root) return;
+    const works = (data && data.works) || [];
+    if (!works.length) {
+      const sec = $("#works");
+      if (sec) sec.style.display = "none";
+      return;
+    }
+
+    // section head text from meta (optional override)
+    if (data.meta) {
+      if (data.meta.kicker) { const n = $("#works-no"); if (n) n.textContent = data.meta.kicker; }
+      if (data.meta.heading) { const h = $("#works-h"); if (h) h.textContent = data.meta.heading; }
+      if (data.meta.lead) { const l = $("#works-lead"); if (l) l.textContent = data.meta.lead; }
+    }
+
+    root.innerHTML = "";
+    works.forEach(w => {
+      // visual column: main figure (+ optional detail figure for work2)
+      const visual = el("div", { class: "work-visual" });
+      visual.appendChild(buildWorkFigure(w.image, w.image_caption, w.image_alt, {
+        pending: !!w.image_pending,
+        pendingLabel: "メイン画像 準備中"
+      }));
+      if (w.detail_image) {
+        visual.appendChild(buildWorkFigure(w.detail_image, w.detail_caption, w.detail_alt, {
+          detail: true,
+          pending: !!w.image_pending,
+          pendingLabel: "ディテール画像 準備中"
+        }));
+      }
+
+      // body column
+      const body = el("div", { class: "work-body" });
+      body.appendChild(el("div", { class: "work-head" }, [
+        el("span", { class: "work-num", text: w.number || "" }),
+        el("div", { class: "work-titles" }, [
+          el("h3", { text: w.title || "" }),
+          w.subtitle ? el("span", { class: "work-sub", text: w.subtitle }) : null
+        ])
+      ]));
+      if (w.summary) body.appendChild(el("p", { class: "work-summary", text: w.summary }));
+      if (w.specs && w.specs.length) {
+        const dl = el("dl", { class: "work-specs" });
+        w.specs.forEach(pair => {
+          dl.appendChild(el("dt", { text: pair[0] }));
+          dl.appendChild(el("dd", { text: pair[1] }));
+        });
+        body.appendChild(dl);
+      }
+      if (w.keywords && w.keywords.length) {
+        const kw = el("div", { class: "work-keywords" });
+        w.keywords.forEach(k => kw.appendChild(el("span", { class: "work-kw", text: k })));
+        body.appendChild(kw);
+      }
+
+      const card = el("article", { class: "work-card reveal", dataset: { work: w.id || "" } }, [
+        visual, body
+      ]);
+      root.appendChild(card);
+    });
+
+    observeReveals();
+  }
+
   /* ---------------- Render: drawings ---------------- */
   function renderDrawings(items) {
     const root = $("#drawing-grid");
@@ -1256,12 +1354,13 @@
 
   /* ---------------- Init ---------------- */
   async function init() {
-    const [content, photos, videos, archive, classification] = await Promise.all([
+    const [content, photos, videos, archive, classification, works] = await Promise.all([
       loadJSON("data/site_content.json", FALLBACK_CONTENT),
       loadJSON("data/photo_manifest.json", FALLBACK_PHOTOS),
       loadJSON("data/video_manifest.json", FALLBACK_VIDEOS),
       loadJSON("data/archive_manifest.json", FALLBACK_ARCHIVE),
-      loadJSON("data/classification.json", FALLBACK_CLASSIFICATION)
+      loadJSON("data/classification.json", FALLBACK_CLASSIFICATION),
+      loadJSON("data/works.json", FALLBACK_WORKS)
     ]);
 
     bindHeroVideo(content.hero || {});
@@ -1272,6 +1371,7 @@
     renderTransformation(content.transformation || FALLBACK_CONTENT.transformation);
     renderPrototypeEvidence(photos, content.hero || {});
     renderPrototypes(content.prototypes || FALLBACK_CONTENT.prototypes);
+    renderWorks(works && works.works ? works : FALLBACK_WORKS);
     renderDrawings(content.drawings || FALLBACK_CONTENT.drawings);
     renderConclusion((content.conclusion && content.conclusion.body) || FALLBACK_CONTENT.conclusion.body);
 

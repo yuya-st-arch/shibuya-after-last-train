@@ -1839,6 +1839,180 @@ body.presentation .hero-title h1 { font-size: clamp(72px, 14vw, 240px); }
   .display-h { color: #000; }
 }
 
+/* =====================================================
+   07B / Design Works — 黒ベース。寸法図を大きく読ませる
+   ユーザー方針「従来の黒ベース維持 / 白UI実験版は不採用」に合わせ、
+   .block の白テーマトークンを works 内だけ黒へ戻す（hero/classificationと統一）
+   ===================================================== */
+.block.works {
+  --bg: #050505;
+  --bg-soft: #0c0c0d;
+  --bg-card: #111112;
+  --bg-card-2: #161618;
+  --line: rgba(255, 255, 255, 0.12);
+  --line-strong: rgba(255, 255, 255, 0.22);
+  --ink: #f3efe7;
+  --ink-soft: rgba(243, 239, 231, 0.78);
+  --ink-mute: rgba(243, 239, 231, 0.48);
+  --ink-faint: rgba(243, 239, 231, 0.30);
+  --accent: #ff5b3a;
+  --accent-warm: #ffae6f;
+  background: #050505;
+  color: var(--ink);
+}
+.block.works .section-no { border-top-color: var(--accent); color: var(--accent); }
+
+.works-list {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(40px, 6vw, 88px);
+}
+.work-card {
+  display: grid;
+  grid-template-columns: minmax(0, 1.55fr) minmax(0, 1fr);
+  gap: clamp(20px, 3vw, 48px);
+  align-items: start;
+}
+.work-card:nth-child(even) .work-visual { order: 2; }
+.work-card:nth-child(even) .work-body { order: 1; }
+
+.work-visual { min-width: 0; }
+.work-figure {
+  margin: 0;
+  border: 1px solid var(--line);
+  background: #050506;
+  overflow: hidden;
+}
+.work-figure img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+.work-figure figcaption {
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  letter-spacing: 0.1em;
+  color: var(--ink-faint);
+  padding: 8px 12px;
+  border-top: 1px solid var(--line);
+}
+/* work2 detail thumbnail */
+.work-figure--detail {
+  margin-top: 14px;
+}
+.work-figure--detail img { max-height: 360px; object-fit: cover; }
+
+.work-image-pending {
+  aspect-ratio: 4 / 3;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  text-align: center;
+  background:
+    linear-gradient(135deg, rgba(255,255,255,0.02), rgba(255,255,255,0)),
+    repeating-linear-gradient(45deg, rgba(255,255,255,0.035) 0 1px, transparent 1px 14px);
+  color: var(--ink-faint);
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  padding: 20px;
+}
+.work-image-pending strong { color: var(--ink-soft); font-weight: 500; }
+.work-image-pending code {
+  font-size: 10px;
+  color: var(--accent-warm);
+  background: rgba(255,255,255,0.05);
+  padding: 2px 6px;
+}
+
+.work-body { display: flex; flex-direction: column; gap: 16px; }
+.work-head {
+  display: flex; align-items: baseline; gap: 16px;
+  border-bottom: 1px solid var(--line);
+  padding-bottom: 14px;
+}
+.work-num {
+  font-family: var(--font-mono);
+  font-size: clamp(34px, 4vw, 54px);
+  color: var(--accent);
+  letter-spacing: -0.04em;
+  line-height: 1;
+}
+.work-titles h3 {
+  margin: 0;
+  font-family: var(--font-sans);
+  font-weight: 700;
+  font-size: clamp(20px, 2.2vw, 30px);
+  letter-spacing: -0.01em;
+  line-height: 1.05;
+}
+.work-titles .work-sub {
+  display: block;
+  margin-top: 4px;
+  font-family: var(--font-serif);
+  font-size: 14px;
+  color: var(--ink-soft);
+}
+.work-summary {
+  font-family: var(--font-serif);
+  font-size: clamp(14px, 1.1vw, 16px);
+  color: var(--ink-soft);
+  line-height: 1.75;
+  margin: 0;
+}
+.work-specs {
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  gap: 8px 18px;
+  margin: 4px 0 0;
+  font-size: 13px;
+}
+.work-specs dt {
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+  padding-top: 2px;
+}
+.work-specs dd { margin: 0; color: var(--ink-soft); line-height: 1.5; }
+.work-keywords {
+  display: flex; flex-wrap: wrap; gap: 6px;
+  margin-top: 4px;
+}
+.work-kw {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  color: var(--ink-mute);
+  border: 1px solid var(--line);
+  padding: 2px 7px;
+}
+.work-badge {
+  align-self: flex-start;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--accent);
+  border: 1px solid var(--accent);
+  padding: 3px 9px;
+}
+
+@media (max-width: 860px) {
+  .work-card,
+  .work-card:nth-child(even) { grid-template-columns: 1fr; }
+  .work-card:nth-child(even) .work-visual,
+  .work-card:nth-child(even) .work-body { order: initial; }
+}
+
+@media print {
+  .work-figure { border-color: #000; background: #fff; }
+  .work-card { break-inside: avoid; }
+}
+
 /* ---------- Observation Map: real image ---------- */
 .map-stage--image { grid-template-columns: 1fr; gap: 16px; }
 .map-stage--image figure.map-canvas {

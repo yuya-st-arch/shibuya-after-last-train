@@ -1,0 +1,74 @@
+{
+  "meta": {
+    "kicker": "07B / Design Works",
+    "heading": "都市部材から起こした、3つの制作。",
+    "lead": "観察と分類から抜き出した都市部材を、寸法と接合をもつ実制作の案へ翻訳する。座る・寄る・置くを、最小の介入で街路に挿し込む。"
+  },
+  "works": [
+    {
+      "id": "work1",
+      "number": "01",
+      "title": "STEEL FOLDING CHAIR",
+      "subtitle": "スチール折りたたみ椅子",
+      "summary": "寸法入りの木材椅子をスチール素材へ変換した案。終電後の街路に持ち込み、短時間だけ座面を開く折りたたみの椅子。",
+      "image": "assets/works/work1_steel_folding_chair.jpg",
+      "image_caption": "Top / Perspective / Front / Right と断面寸法",
+      "image_alt": "スチール折りたたみ椅子の4面図と断面寸法",
+      "specs": [
+        ["横幅", "440 mm"],
+        ["前足〜後ろ足（下部）", "900 mm"],
+        ["高さ", "800 mm（参考値）"],
+        ["フレーム断面", "30 × 40 / t=1.6"],
+        ["フレーム素材", "スチール（亜鉛メッキ＋焼付塗装）/ またはアルミ"],
+        ["座面", "ターポリン / 帆布 など"],
+        ["ジョイント", "ピン接合＋ボルト止め"]
+      ],
+      "status": "model"
+    },
+    {
+      "id": "work2",
+      "number": "02",
+      "title": "CLAMP SHELF",
+      "subtitle": "木の板とクランプの棚",
+      "summary": "既存のガードレールに、木板と単管クランプ・金物を用いて小さな水平面を仮設的に取り付ける。座るための家具ではなく、飲み物・スマホ・荷物を一時的に置き、身体が街路にとどまるきっかけをつくる都市家具。昼は仮設金物やメンテナンス部材のように都市へ擬態し、夜は終電後の渋谷に現れる滞留を支える。",
+      "image": "assets/works/work2_guardrail_shelf.jpg",
+      "image_caption": "ガードレールに木板をクランプで取り付けた現地（メイン）",
+      "image_alt": "ガードレールに木板をクランプで取り付けた夜の現地写真",
+      "detail_image": "assets/works/work2_clamp_detail.jpg",
+      "detail_caption": "単管クランプ＋金物（構法ディテール）",
+      "detail_alt": "単管クランプと固定金物のパーツ写真",
+      "specs": [
+        ["対象都市部材", "ガードレール / 街路の既存部材"],
+        ["天板", "合板（木板）"],
+        ["固定", "単管クランプ＋固定金物（ボルト止め）"],
+        ["支える行為", "置く / 寄る / 待つ"],
+        ["時間帯", "終電後〜始発"]
+      ],
+      "keywords": ["clamp", "plywood", "guardrail", "temporary shelf", "urban furniture", "night-time publicness"],
+      "status": "field",
+      "image_pending": true
+    },
+    {
+      "id": "work3",
+      "number": "03",
+      "title": "RAIL-FRAME CHAIR",
+      "subtitle": "鋼材と布のイス",
+      "summary": "ガードレール状の鋼材フレームに編み座面を張った椅子。道路境界の水平材を背後に取り込み、街路に置いたまま身体を受け止める。",
+      "image": "assets/works/work3_rail_chair.jpg",
+      "image_caption": "Top / Perspective / Front / Right と断面寸法",
+      "image_alt": "鋼材レールフレーム椅子の4面図と断面寸法",
+      "specs": [
+        ["長辺", "1500 mm"],
+        ["短辺", "700 mm"],
+        ["高さ", "760 mm"],
+        ["パイプ長", "1200 mm"],
+        ["座面幅", "470 mm"],
+        ["フレーム断面", "30 × 40 / t=1.6"],
+        ["フレーム素材", "スチール（黒皮仕上げ）"],
+        ["座面", "合成ベルト（編りタイプ）"],
+        ["製作", "溶接組立"]
+      ],
+      "status": "model"
+    }
+  ]
+}
