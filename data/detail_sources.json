@@ -1,0 +1,151 @@
+{
+  "meta": {
+    "title": "Detail Source Matrix",
+    "subtitle": "地下道入口建屋とL字差し掛けの構法整理",
+    "status": "draft",
+    "updated": "2026-07-06",
+    "classification_rule": {
+      "V": "Verified: 写真、実測、メーカー資料などで確認できた内容",
+      "A": "Assumed: 一般構法や参照資料から推定した内容",
+      "P": "Proposed: 今回の設計提案。事実として扱わない"
+    }
+  },
+  "detail": {
+    "title": "地下鉄入口の外装コーナーに差し込むL字支持面",
+    "summary": "地下鉄入口の段差、手すり、外装コーナーを、夜だけ起動する小さな支持面の受け皿として読む。既存建物の事実、一般構法からの推定、今回の提案をV/A/Pで分けて表示する。",
+    "sections": [
+      {
+        "label": "L-Stool",
+        "title": "L字腰掛けを建築部材として扱う",
+        "body": "L字腰掛けは完成されたベンチではなく、階段に被せれば観客席になり、二つ組めば演奏者の椅子になる可動の都市部材である。"
+      },
+      {
+        "label": "Two Modes",
+        "title": "観客席と演奏者椅子の二つの使い方",
+        "body": "同じ部材が、座る人、演奏する人、荷物を置く人によって組み替えられる余地を持つ。"
+      },
+      {
+        "label": "Corner Cassette",
+        "title": "昼はコーナー役物に擬態する",
+        "body": "昼間は壁のカドや目地に近い存在として収まり、夜だけ外されて階段や演奏の場へ移動する。"
+      },
+      {
+        "label": "External Cladding System",
+        "title": "外装保持系と人荷重支持系を分ける",
+        "body": "腰掛けは外装パネルへ直接掛けず、外装保持系と人荷重支持系を分離する。"
+      },
+      {
+        "label": "Structural Receiver Rail",
+        "title": "人荷重は外装パネルではなく躯体へ流す",
+        "body": "BODY → L-STOOL → HANGER → LOCKING RAIL → SECONDARY STEEL FRAME → ANCHOR → PRIMARY STRUCTURE の荷重経路として整理する。"
+      },
+      {
+        "label": "V / A / P",
+        "title": "DESIGN LOAD = ASSUMPTION",
+        "body": "設計荷重は仮定であり、STRUCTURAL VERIFICATION REQUIRED として扱う。事実、推定、提案を混ぜない。"
+      },
+      {
+        "label": "Cutaway Iso",
+        "title": "cutaway_iso_v03 placeholder",
+        "body": "Rhino/GHからの図版差し替え予定。外装保持系と人荷重支持系の分離を示す。"
+      },
+      {
+        "label": "Exploded Axon",
+        "title": "corner_exploded_v031 placeholder",
+        "body": "Rhino/GHからの図版差し替え予定。壁カド、レール、ハンガー、L字腰掛けの関係を分解する。"
+      },
+      {
+        "label": "Detail Section",
+        "title": "detail_section_1to5 placeholder",
+        "body": "Rhino/GHからの図版差し替え予定。躯体へ荷重を流す断面構成を示す。"
+      }
+    ],
+    "modes": [
+      {
+        "name": "Audience Mode",
+        "description": "幅300mm程度の小さな面を段差に差し掛け、短時間だけ座る・荷物を置く支点にする。"
+      },
+      {
+        "name": "Performer Mode",
+        "description": "演奏者の近くで、楽器、スマートフォン、足元、荷物の位置を整える小さな舞台縁として使う。"
+      },
+      {
+        "name": "Stored / Returned",
+        "description": "使用後は外装コーナーや壁際に戻し、常設ベンチや占有物として読ませない。"
+      }
+    ],
+    "provisional_dimensions": [
+      {
+        "label": "幅",
+        "value": "300 mm",
+        "classification": "P",
+        "note": "地下入口の段差に差し込む小さな単位としての仮寸法。"
+      },
+      {
+        "label": "内法踏面",
+        "value": "270 mm",
+        "classification": "P",
+        "note": "座る、置く、足元を整えるための最小奥行としての検討値。"
+      },
+      {
+        "label": "蹴上",
+        "value": "175 mm",
+        "classification": "P",
+        "note": "既存階段寸法ではなく、L字部材断面の提案値として扱う。"
+      },
+      {
+        "label": "板厚",
+        "value": "24 mm",
+        "classification": "P",
+        "note": "模型・実物検討のための仮定。材料、支持条件、人荷重検討で再調整する。"
+      }
+    ]
+  },
+  "sources": [
+    {
+      "id": "detail-001",
+      "title": "地下鉄入口建屋を介入対象にする",
+      "classification": "V",
+      "claim": "対象は渋谷の地下鉄入口建屋、段差、手すり、外装コーナーである。",
+      "source": "2026-07-03/04地下鉄入口ライブ実験写真、既存フィールド写真",
+      "source_url": "",
+      "notes": "写真内の人物は公開許可取得済み素材として別JSONに記録する。"
+    },
+    {
+      "id": "detail-002",
+      "title": "外装コーナーを戻し場所として読む",
+      "classification": "A",
+      "claim": "外装コーナーは、部材を戻すための視覚的な受け皿として扱える。",
+      "source": "外装パネル、レール、メンテナンス部材に関する一般的な読み替え",
+      "source_url": "",
+      "notes": "実際の外装パネルに固定するとは断定しない。"
+    },
+    {
+      "id": "detail-003",
+      "title": "L字部材を二つのモードで使う",
+      "classification": "P",
+      "claim": "L字部材は、観客用の短い腰掛けと演奏者用の小さな舞台縁に切り替えられる。",
+      "source": "今回の設計提案",
+      "source_url": "../underground-live/",
+      "notes": "名称は未確定。L字腰掛け／L字差し掛けの表記は最終決定しない。"
+    },
+    {
+      "id": "detail-004",
+      "title": "荷重経路を分離する",
+      "classification": "P",
+      "claim": "人荷重は、L字部材、専用支持金物、二次躯体、躯体へ流し、外装パネルには負担させない。",
+      "source": "今回の構法方針",
+      "source_url": "",
+      "notes": "支持金物と実物寸法は今後の構造検討で確定する。"
+    },
+    {
+      "id": "detail-005",
+      "title": "提案寸法はPとして扱う",
+      "classification": "P",
+      "claim": "幅300mm、内法踏面270mm、蹴上175mm、板厚24mmは、現時点の提案寸法である。",
+      "source": "発表用Detail整理",
+      "source_url": "",
+      "notes": "現地実測値やメーカー資料ではない。"
+    }
+  ]
+}

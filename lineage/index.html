@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Lineage | Shibuya After the Last Train</title>
+    <meta name="description" content="終電後の渋谷への介入が生まれた背景と設計の系譜。">
+    <meta name="theme-color" content="#050505">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Noto+Serif+JP:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="icon" href="data:,">
+    <link rel="stylesheet" href="../style.css">
+  </head>
+  <body class="review-page review-page-lineage">
+    <a class="skip-link" href="#lineage-list">本文へ移動</a>
+    <div class="grain" aria-hidden="true"></div>
+
+    <header class="review-topbar" aria-label="Sub page header">
+      <a class="review-brand" href="../">SHIBUYA / AFTER LAST TRAIN</a>
+      <nav class="review-nav" aria-label="Review pages">
+        <a href="../fieldnotes/">Field Notes</a>
+        <a href="../underground-live/">Underground Live</a>
+        <a href="../detail/">Detail</a>
+        <a href="../lineage/" aria-current="page">Lineage</a>
+        <a href="../#conclusion">Conclusion</a>
+      </nav>
+    </header>
+
+    <nav class="mobile-route-nav" aria-label="Mobile review navigation">
+      <a href="../fieldnotes/">Field</a>
+      <a href="../underground-live/">Live</a>
+      <a href="../detail/">Detail</a>
+      <a href="../lineage/" aria-current="page">Lineage</a>
+    </nav>
+
+    <main class="review-main">
+      <section class="review-hero">
+        <p class="review-kicker">Final Review / Lineage</p>
+        <h1>この提案が、<br>どこから来たのか。</h1>
+        <p>渋谷の夜間介入を、突然のアイデアではなく、<br class="mobile-break">場所の記憶、人の関係、描くこと、<br class="mobile-break">支えることの延長として読めるようにする。</p>
+      </section>
+
+      <section class="lineage-intro review-card" id="lineage-intro"></section>
+      <section class="lineage-list" id="lineage-list"></section>
+      <section class="lineage-links" id="lineage-links" aria-label="Related pages"></section>
+    </main>
+
+    <script>
+      const intro = document.querySelector("#lineage-intro");
+      const list = document.querySelector("#lineage-list");
+      const links = document.querySelector("#lineage-links");
+
+      function make(tag, className, text) {
+        const el = document.createElement(tag);
+        if (className) el.className = className;
+        if (text != null) {
+          el.textContent = text;
+          addBreakHints(el);
+        }
+        return el;
+      }
+
+      function addBreakHints(el) {
+        const text = el.textContent || "";
+        if (!/[\u3040-\u30ff\u3400-\u9fff]/.test(text)) return;
+        const escaped = text.replace(/[&<>"]/g, (char) => ({
+          "&": "&amp;",
+          "<": "&lt;",
+          ">": "&gt;",
+          "\"": "&quot;"
+        })[char]);
+        el.innerHTML = escaped.replace(/([\u3040-\u30ff\u3400-\u9fff])/g, "$1<wbr>");
+      }
+
+      function render(data) {
+        intro.innerHTML = "";
+        intro.append(make("h2", "", data.meta ? data.meta.subtitle : "Lineage"));
+        intro.append(make("p", "review-card-lead", data.intro || ""));
+
+        list.innerHTML = "";
+        (data.sections || []).forEach((section) => {
+          const article = make("article", "lineage-item");
+          article.append(make("span", "lineage-label", section.label));
+          const body = make("div", "");
+          body.append(make("h2", "", section.title));
+          body.append(make("p", "review-card-lead", section.summary));
+          const ul = make("ul", "review-mini-list");
+          (section.points || []).forEach((point) => ul.append(make("li", "", point)));
+          body.append(ul);
+          article.append(body);
+          list.append(article);
+        });
+
+        links.innerHTML = '<h2 class="review-section-title">Related Pages</h2>';
+        const grid = make("div", "review-card-grid");
+        (data.links || []).forEach((link) => {
+          const a = make("a", "review-card link-card");
+          a.href = link.href;
+          a.append(make("h3", "", link.label));
+          a.append(make("p", "", link.description));
+          grid.append(a);
+        });
+        links.append(grid);
+      }
+
+      fetch("../data/lineage.json", { cache: "no-store" })
+        .then((res) => {
+          if (!res.ok) throw new Error("HTTP " + res.status);
+          return res.json();
+        })
+        .then(render)
+        .catch(() => {
+          list.innerHTML = '<p class="review-load-error">Lineage JSONを読み込めませんでした。localhostまたはGitHub Pagesで確認してください。</p>';
+        });
+    </script>
+  </body>
+</html>

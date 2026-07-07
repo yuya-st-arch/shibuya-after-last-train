@@ -1,0 +1,174 @@
+{
+  "meta": {
+    "title": "Field Notes",
+    "subtitle": "観察から介入へ進むための調査記録",
+    "status": "draft",
+    "updated": "2026-07-06",
+    "note": "6/19はEncounter、7/3-7/4はUnderground Liveとして分離する。7/3-7/4素材は公開許可取得済みとして同意情報を記録する。"
+  },
+  "entries": [
+    {
+      "date": "2026-05-15",
+      "title": "身体の滞留を観察する",
+      "status": "outline",
+      "visible": true,
+      "summary": "終電後の渋谷を、店や広告の都市ではなく、身体がどこに止まり、寄り、待つかという観察対象として読み替えた初期記録。",
+      "findings": [
+        "座る場所はベンチだけでなく、段差、壁際、柵、閉じたファサードの前に散らばる。",
+        "滞留は長時間の居場所というより、数分単位の姿勢変更として現れる。",
+        "都市部材は通行を制御するだけでなく、夜には身体の支点として読める。"
+      ],
+      "design_shift": "家具を新しく置く前に、すでに身体を受け止めている都市部材を拾う。",
+      "media": [
+        {
+          "type": "image",
+          "src": "assets/photos/selected/people_stay_01.jpg",
+          "caption": "滞留する身体の観察候補",
+          "status": "public_candidate"
+        }
+      ]
+    },
+    {
+      "date": "2026-05-22",
+      "title": "仮設物と地下の読み替え",
+      "status": "outline",
+      "visible": true,
+      "summary": "柵、ポール、サイン、設備箱などを、夜間の身体が一時的に使う都市の下地として分類し始めた記録。",
+      "findings": [
+        "U字柵や車止めは、昼の制御線から夜の寄りかかり面へ変化する。",
+        "看板や広告下地は、情報面であると同時に身体を受ける裏面を持つ。",
+        "設備箱や段差は、管理のための部材でありながら、短い休息や荷物置きの支点になりうる。"
+      ],
+      "design_shift": "都市部材を、行為と接合できる小さな家具の基盤として整理する。",
+      "media": [
+        {
+          "type": "image",
+          "src": "assets/photos/selected/u_fence_01.jpg",
+          "caption": "U字柵を家具化の基盤として読む",
+          "status": "public_candidate"
+        },
+        {
+          "type": "image",
+          "src": "assets/photos/selected/pole_01.jpg",
+          "caption": "ポール足元の小さな滞留可能性",
+          "status": "public_candidate"
+        }
+      ]
+    },
+    {
+      "id": "2026-06-19-night-session",
+      "date": "2026-06-19",
+      "label": "ENCOUNTER",
+      "title": "Night Session / Encounter",
+      "title_ja": "邂逅としてのナイトセッション",
+      "status": "recorded",
+      "visible": true,
+      "summary": "終電後の渋谷を歩く中で、偶然弾き語りの場に出会った。音が通行人を止め、知らない人同士が同じ方向を向いて座る一時的な場が立ち上がった。",
+      "summary_ja": "終電後の渋谷を歩く中で、偶然弾き語りの場に出会った。音が通行人を止め、知らない人同士が同じ方向を向いて座る一時的な場が立ち上がった。",
+      "body": [
+        "家具を置く前に、音が人を止めた。",
+        "弾き語りによって、通行人は一時的な観客へ変わった。知らない人同士が同じ方向を向き、短い時間と場所を共有した。",
+        "閉じたシャッターは夜の背景となり、階段や路面は、座る場所として読み替えられた。",
+        "この出来事から、家具は場をゼロからつくるのではなく、すでに始まっている音と関係を支えるべきだと考えた。",
+        "この日の出来事は、完成された計画ではなく、都市の中ですでに始まっていた行為との邂逅だった。"
+      ],
+      "findings": [
+        "家具より先に、音が人を止めた",
+        "通行人が一時的な観客へ変化した",
+        "知らない人同士が同じ方向を向いた",
+        "シャッターが夜の背景になった",
+        "音、通行、管理、撤収性も設計条件になった",
+        "家具は既存の関係を支えるべきだと分かった"
+      ],
+      "design_shift": "家具が場を作るのではなく、すでに始まっている音と関係を支える。",
+      "consent_status": "review_required",
+      "public_use": true,
+      "privacy_note": "6/19素材は限定的な公開候補として扱い、顔がはっきりする写真は引き続き慎重に扱う。",
+      "media": [
+        {
+          "type": "image",
+          "src": "assets/field/2026-06-19-night-session/selected/2026-06-19_night-session_013_community-01.jpg",
+          "caption": "音と座る余白が一時的な共同性を立ち上げる",
+          "status": "draft_public_candidate"
+        },
+        {
+          "type": "image",
+          "src": "assets/field/2026-06-19-night-session/selected/2026-06-19_night-session_010_session-growth.jpg",
+          "caption": "通行人が聴衆へ変わる場面推移",
+          "status": "draft_public_candidate"
+        },
+        {
+          "type": "image",
+          "src": "assets/field/2026-06-19-night-session/selected/2026-06-19_night-session_016_street-after.jpg",
+          "caption": "場が終わった後の街路",
+          "status": "draft_public_candidate"
+        }
+      ],
+      "next_design": [
+        "演奏者の身体、楽器、荷物を支える小さな面を検討する。",
+        "短時間だけ座れる低い支持面を検討する。",
+        "音量、継続時間、撤収性を、都市管理との条件として整理する。"
+      ],
+      "privacy_status": "limited_public_selection"
+    },
+    {
+      "id": "2026-07-03-underground-live",
+      "date": "2026-07-03/2026-07-04",
+      "label": "UNDERGROUND LIVE",
+      "title": "Underground Live / Subway Entrance Experiment",
+      "title_ja": "地下鉄入口ライブ実験",
+      "status": "recorded",
+      "visible": true,
+      "summary": "6/19の邂逅を受け、地下鉄入口のシャッター前と階段を使い、L字腰掛けと演奏者の椅子を用いた実験を行った。許可を得た出演者・関係者とともに、音・階段・外装ディテールをつなぐ建築的介入へ展開した。",
+      "summary_ja": "6/19の邂逅を受け、地下鉄入口のシャッター前と階段を使い、L字腰掛けと演奏者の椅子を用いた実験を行った。許可を得た出演者・関係者とともに、音・階段・外装ディテールをつなぐ建築的介入へ展開した。",
+      "body": [
+        "地下鉄入口の段差は、通行のための勾配であると同時に、聴く人が短時間だけ腰を下ろす客席になった。",
+        "閉じたシャッターは背景となり、L字部材は演奏者の近くで荷物、身体、場の縁を支える小さな面として働いた。",
+        "この記録は6/19の偶然の邂逅とは分け、公開許可を得た7/3-7/4の地下鉄入口ライブ実験として整理する。"
+      ],
+      "findings": [
+        "地下入口の階段は、客席、見下ろし、距離調整の三つを同時に持つ",
+        "L字部材は単体の椅子ではなく、演奏の縁を作る小さな建築部品として読める",
+        "演奏、通行、管理、撤収の条件を同じ画面内で検討できた",
+        "実験後に部材が消えても、地下入口の読み替えだけが記録として残る"
+      ],
+      "design_shift": "邂逅を観察で終わらせず、地下鉄入口の段差と外装に差し込む最小の支持面へ進める。",
+      "consent_status": "permission_obtained",
+      "public_use": true,
+      "face_identifiable": true,
+      "privacy_note": "出演者・関係者の公開許可取得済み。",
+      "media": [
+        {
+          "type": "image",
+          "src": "assets/field/2026-07-03-underground-live/selected/2026-07-03_underground-live_004_subway-live-overview.jpg",
+          "caption": "地下鉄入口で演奏と滞留が重なる全景。",
+          "status": "permission_obtained"
+        },
+        {
+          "type": "image",
+          "src": "assets/field/2026-07-03-underground-live/selected/2026-07-03_underground-live_006_audience-from-stair.jpg",
+          "caption": "階段から見下ろした演奏者と聴衆の配置。",
+          "status": "permission_obtained"
+        },
+        {
+          "type": "image",
+          "src": "assets/field/2026-07-03-underground-live/selected/2026-07-03_underground-live_014_stool-as-stage-edge.jpg",
+          "caption": "小さな面が演奏の縁をつくる。",
+          "status": "permission_obtained"
+        },
+        {
+          "type": "image",
+          "src": "assets/field/2026-07-03-underground-live/selected/2026-07-03_underground-live_017_detail-on-rail.jpg",
+          "caption": "手すり・段差・L字部材の寸法感。",
+          "status": "permission_obtained"
+        }
+      ],
+      "next_design": [
+        "幅300mm、踏面270mm、蹴上175mm、板厚24mm仮定でDetailページに接続する。",
+        "観客モードと演奏者モードを分け、どの荷重がどこへ流れるかをV/A/Pで明示する。",
+        "動画は公開前に映り込みと音声を人間が確認する。"
+      ],
+      "privacy_status": "permission_obtained"
+    }
+  ]
+}

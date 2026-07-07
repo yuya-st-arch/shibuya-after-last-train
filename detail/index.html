@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Detail | Shibuya After the Last Train</title>
+    <meta name="description" content="地下道入口建屋とL字差し掛けの構法、寸法、根拠区分を整理するページ。">
+    <meta name="theme-color" content="#050505">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Noto+Serif+JP:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="icon" href="data:,">
+    <link rel="stylesheet" href="../style.css">
+  </head>
+  <body class="review-page review-page-detail">
+    <a class="skip-link" href="#detail-matrix">本文へ移動</a>
+    <div class="grain" aria-hidden="true"></div>
+
+    <header class="review-topbar" aria-label="Sub page header">
+      <a class="review-brand" href="../">SHIBUYA / AFTER LAST TRAIN</a>
+      <nav class="review-nav" aria-label="Review pages">
+        <a href="../fieldnotes/">Field Notes</a>
+        <a href="../underground-live/">Underground Live</a>
+        <a href="../detail/" aria-current="page">Detail</a>
+        <a href="../lineage/">Lineage</a>
+        <a href="../#classification">Matrix</a>
+      </nav>
+    </header>
+
+    <nav class="mobile-route-nav" aria-label="Mobile review navigation">
+      <a href="../fieldnotes/">Field</a>
+      <a href="../underground-live/">Live</a>
+      <a href="../detail/" aria-current="page">Detail</a>
+      <a href="../lineage/">Lineage</a>
+    </nav>
+
+    <main class="review-main">
+      <section class="review-hero">
+        <p class="review-kicker">Final Review / Detail</p>
+        <h1>実在の構法と、<br>今回の提案を混ぜない。</h1>
+        <p>地下鉄入口の外装コーナーに、<br class="mobile-break">夜だけ起動するL字支持面を差し込む。<br class="mobile-break">確認済み、推定、提案を分けて、<br class="mobile-break">発表時の誤読を避ける。</p>
+      </section>
+
+      <section class="detail-overview" id="detail-overview"></section>
+      <section class="detail-architecture" id="detail-architecture" aria-label="Detail architecture"></section>
+      <section class="detail-modes" id="detail-modes" aria-label="Use modes"></section>
+      <section class="detail-dimensions" id="detail-dimensions" aria-label="Provisional dimensions"></section>
+      <section class="detail-source-matrix" id="detail-matrix" aria-label="Detail source matrix"></section>
+    </main>
+
+    <script>
+      const overview = document.querySelector("#detail-overview");
+      const architecture = document.querySelector("#detail-architecture");
+      const modes = document.querySelector("#detail-modes");
+      const dims = document.querySelector("#detail-dimensions");
+      const matrix = document.querySelector("#detail-matrix");
+
+      function node(tag, className, text) {
+        const el = document.createElement(tag);
+        if (className) el.className = className;
+        if (text != null) {
+          el.textContent = text;
+          addBreakHints(el);
+        }
+        return el;
+      }
+
+      function addBreakHints(el) {
+        const text = el.textContent || "";
+        if (!/[\u3040-\u30ff\u3400-\u9fff]/.test(text)) return;
+        const escaped = text.replace(/[&<>"]/g, (char) => ({
+          "&": "&amp;",
+          "<": "&lt;",
+          ">": "&gt;",
+          "\"": "&quot;"
+        })[char]);
+        el.innerHTML = escaped.replace(/([\u3040-\u30ff\u3400-\u9fff])/g, "$1<wbr>");
+      }
+
+      function badge(type) {
+        const b = node("span", "vap-badge vap-" + String(type).toLowerCase(), type);
+        return b;
+      }
+
+      function render(data) {
+        const detail = data.detail || {};
+        overview.innerHTML = "";
+        const lead = node("article", "review-card detail-lead");
+        lead.append(node("h2", "", detail.title || ""));
+        lead.append(node("p", "review-card-lead", detail.summary || ""));
+        overview.append(lead);
+
+        architecture.innerHTML = '<h2 class="review-section-title">Detail Sections</h2>';
+        const sectionGrid = node("div", "review-card-grid detail-section-grid");
+        (detail.sections || []).forEach((section, index) => {
+          const card = node("article", "review-card compact-card detail-section-card");
+          card.append(node("span", "review-card-no", section.label || String(index + 1).padStart(2, "0")));
+          card.append(node("h3", "", section.title));
+          card.append(node("p", "", section.body));
+          sectionGrid.append(card);
+        });
+        architecture.append(sectionGrid);
+
+        modes.innerHTML = '<h2 class="review-section-title">Use Modes</h2>';
+        const modeGrid = node("div", "review-card-grid");
+        (detail.modes || []).forEach((mode, index) => {
+          const card = node("article", "review-card compact-card");
+          card.append(node("span", "review-card-no", String(index + 1).padStart(2, "0")));
+          card.append(node("h3", "", mode.name));
+          card.append(node("p", "", mode.description));
+          modeGrid.append(card);
+        });
+        modes.append(modeGrid);
+
+        dims.innerHTML = '<h2 class="review-section-title">Provisional Dimensions</h2>';
+        const dimGrid = node("div", "dimension-grid");
+        (detail.provisional_dimensions || []).forEach((dim) => {
+          const card = node("article", "dimension-card");
+          card.append(badge(dim.classification));
+          card.append(node("strong", "", dim.value));
+          card.append(node("span", "", dim.label));
+          card.append(node("p", "", dim.note));
+          dimGrid.append(card);
+        });
+        dims.append(dimGrid);
+
+        matrix.innerHTML = '<h2 class="review-section-title">DETAIL_SOURCE_MATRIX</h2>';
+        const table = node("div", "source-table");
+        (data.sources || []).forEach((source) => {
+          const row = node("article", "source-row");
+          row.append(badge(source.classification));
+          const body = node("div", "");
+          body.append(node("h3", "", source.title));
+          body.append(node("p", "", source.claim));
+          const meta = node("p", "source-meta", "Source: " + source.source + (source.notes ? " / " + source.notes : ""));
+          body.append(meta);
+          row.append(body);
+          table.append(row);
+        });
+        matrix.append(table);
+      }
+
+      fetch("../data/detail_sources.json", { cache: "no-store" })
+        .then((res) => {
+          if (!res.ok) throw new Error("HTTP " + res.status);
+          return res.json();
+        })
+        .then(render)
+        .catch(() => {
+          matrix.innerHTML = '<p class="review-load-error">Detail JSONを読み込めませんでした。localhostまたはGitHub Pagesで確認してください。</p>';
+        });
+    </script>
+  </body>
+</html>

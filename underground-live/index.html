@@ -1,0 +1,197 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Underground Live | Shibuya After the Last Train</title>
+    <meta name="description" content="2026年7月3日から7月4日の地下鉄入口ライブ実験。邂逅から建築ディテールへ進む記録。">
+    <meta name="theme-color" content="#050505">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Noto+Serif+JP:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="icon" href="data:,">
+    <link rel="stylesheet" href="../style.css">
+  </head>
+  <body class="review-page review-page-underground">
+    <a class="skip-link" href="#underground-story">本文へ移動</a>
+    <div class="grain" aria-hidden="true"></div>
+
+    <header class="review-topbar" aria-label="Sub page header">
+      <a class="review-brand" href="../">SHIBUYA / AFTER LAST TRAIN</a>
+      <nav class="review-nav" aria-label="Review pages">
+        <a href="../fieldnotes/">Field Notes</a>
+        <a href="../underground-live/" aria-current="page">Underground Live</a>
+        <a href="../detail/">Detail</a>
+        <a href="../lineage/">Lineage</a>
+      </nav>
+    </header>
+
+    <nav class="mobile-route-nav" aria-label="Mobile review navigation">
+      <a href="../fieldnotes/">Field</a>
+      <a href="../underground-live/" aria-current="page">Live</a>
+      <a href="../detail/">Detail</a>
+      <a href="../lineage/">Lineage</a>
+    </nav>
+
+    <main class="review-main">
+      <section class="review-hero underground-hero">
+        <figure class="underground-hero-photo">
+          <img src="../assets/field/2026-07-03-underground-live/hero/2026-07-03_underground-live_004_subway-live-overview.jpg" alt="地下鉄入口で演奏と滞留が重なる全景">
+        </figure>
+        <div class="underground-hero-copy">
+          <p class="review-kicker underground-kicker">UNDERGROUND LIVE<br>2026.07.03-07.04<br>SHIBUYA SUBWAY ENTRANCE</p>
+          <h1>地下鉄入口ライブ実験。</h1>
+          <p class="underground-subtitle">邂逅から、建築ディテールへ。</p>
+          <p>6/19の偶然の邂逅を受けて、<br class="mobile-break">終電後の渋谷で自然発生した音と滞在を、<br class="mobile-break">地下鉄入口の階段とL字腰掛けによって<br class="mobile-break">支える実験を行った。</p>
+        </div>
+      </section>
+
+      <section class="review-summary underground-summary" aria-label="Underground live summary">
+        <div>
+          <span class="review-stat">07.03</span>
+          <p>subway entrance experiment</p>
+        </div>
+        <div>
+          <span class="review-stat">18</span>
+          <p>selected public candidates</p>
+        </div>
+        <div>
+          <span class="review-stat">OK</span>
+          <p>permission obtained for performers and related people</p>
+        </div>
+      </section>
+
+      <section class="underground-story" id="underground-story" aria-label="Experiment sections"></section>
+      <section class="underground-heroes" id="underground-heroes" aria-label="Hero candidates"></section>
+      <section class="underground-gallery" id="underground-gallery" aria-label="Selected media"></section>
+    </main>
+
+    <script>
+      const story = document.querySelector("#underground-story");
+      const heroes = document.querySelector("#underground-heroes");
+      const gallery = document.querySelector("#underground-gallery");
+      const assetPath = (src) => src && src.startsWith("assets/") ? "../" + src : src;
+
+      function make(tag, className, text) {
+        const el = document.createElement(tag);
+        if (className) el.className = className;
+        if (text != null) {
+          el.textContent = text;
+          addBreakHints(el);
+        }
+        return el;
+      }
+
+      function addBreakHints(el) {
+        const text = el.textContent || "";
+        if (!/[\u3040-\u30ff\u3400-\u9fff]/.test(text)) return;
+        const escaped = text.replace(/[&<>"]/g, (char) => ({
+          "&": "&amp;",
+          "<": "&lt;",
+          ">": "&gt;",
+          "\"": "&quot;"
+        })[char]);
+        el.innerHTML = escaped.replace(/([\u3040-\u30ff\u3400-\u9fff])/g, "$1<wbr>");
+      }
+
+      function privacy(item) {
+        const line = make("p", "privacy-line");
+        line.append(make("span", "privacy-pill", item.consent_status || "permission_obtained"));
+        if (item.review_required) line.append(make("span", "privacy-pill warning", "review required"));
+        if (item.face_identifiable) line.append(make("span", "privacy-pill", "face identifiable"));
+        return line;
+      }
+
+      function appendList(card, className, items) {
+        if (!items || !items.length) return;
+        const ul = make("ul", className);
+        items.forEach((text) => ul.append(make("li", "", text)));
+        card.append(ul);
+      }
+
+      function render(data, manifest) {
+        story.innerHTML = '<h2 class="review-section-title">From Encounter to Architectural Detail</h2>';
+        const storyGrid = make("div", "review-card-grid underground-story-grid");
+        (data.sections || []).forEach((section) => {
+          const card = make("article", "review-card compact-card");
+          card.append(make("span", "review-card-no", section.label));
+          card.append(make("h3", "", section.title));
+          card.append(make("p", "", section.body));
+          appendList(card, "review-mini-list underground-dimensions", section.dimensions);
+          appendList(card, "load-path-list", section.load_path);
+          appendList(card, "review-mini-list", section.notes);
+          appendList(card, "review-mini-list", section.placeholders);
+          if (section.day || section.night) {
+            const pair = make("div", "day-night-pair");
+            const day = make("div", "");
+            day.append(make("span", "day-night-label", "DAY"));
+            appendList(day, "review-mini-list", section.day);
+            const night = make("div", "");
+            night.append(make("span", "day-night-label", "NIGHT"));
+            appendList(night, "review-mini-list", section.night);
+            pair.append(day, night);
+            card.append(pair);
+          }
+          if (section.legend) {
+            const legend = make("dl", "vap-legend-list");
+            Object.entries(section.legend).forEach(([key, value]) => {
+              legend.append(make("dt", "", key));
+              legend.append(make("dd", "", value));
+            });
+            card.append(legend);
+          }
+          if (section.placeholder) {
+            card.append(make("p", "source-meta", "Figure placeholder: " + section.placeholder));
+          }
+          storyGrid.append(card);
+        });
+        story.append(storyGrid);
+
+        heroes.innerHTML = '<h2 class="review-section-title">Hero Candidates</h2>';
+        const heroGrid = make("div", "underground-hero-grid");
+        (manifest.hero_candidates || []).forEach((item) => {
+          const fig = make("figure", "underground-photo-card hero-candidate");
+          const img = make("img");
+          img.src = assetPath(item.hero_path);
+          img.alt = item.caption_ja || item.caption;
+          img.loading = "lazy";
+          fig.append(img);
+          fig.append(make("figcaption", "", item.caption_ja || item.caption));
+          fig.append(privacy(item));
+          heroGrid.append(fig);
+        });
+        heroes.append(heroGrid);
+
+        gallery.innerHTML = '<h2 class="review-section-title">Selected Photos</h2>';
+        const grid = make("div", "underground-gallery-grid");
+        (manifest.selected || []).forEach((item) => {
+          const fig = make("figure", "underground-photo-card");
+          const img = make("img");
+          img.src = assetPath(item.path);
+          img.alt = item.caption_ja || item.caption;
+          img.loading = "lazy";
+          fig.append(img);
+          fig.append(make("figcaption", "", item.caption_ja || item.caption));
+          fig.append(privacy(item));
+          grid.append(fig);
+        });
+        gallery.append(grid);
+      }
+
+      Promise.all([
+        fetch("../data/intervention_20260703.json", { cache: "no-store" }).then((res) => {
+          if (!res.ok) throw new Error("intervention " + res.status);
+          return res.json();
+        }),
+        fetch("../assets/field/2026-07-03-underground-live/photo_manifest.json", { cache: "no-store" }).then((res) => {
+          if (!res.ok) throw new Error("manifest " + res.status);
+          return res.json();
+        })
+      ])
+        .then(([data, manifest]) => render(data, manifest))
+        .catch(() => {
+          gallery.innerHTML = '<p class="review-load-error">Underground Live JSONを読み込めませんでした。localhostまたはGitHub Pagesで確認してください。</p>';
+        });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Field Notes | Shibuya After the Last Train</title>
+    <meta name="description" content="終電後の渋谷を観察日ごとに整理する調査記録。">
+    <meta name="theme-color" content="#050505">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Noto+Serif+JP:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="icon" href="data:,">
+    <link rel="stylesheet" href="../style.css">
+  </head>
+  <body class="review-page review-page-fieldnotes">
+    <a class="skip-link" href="#fieldnote-list">本文へ移動</a>
+    <div class="grain" aria-hidden="true"></div>
+
+    <header class="review-topbar" aria-label="Sub page header">
+      <a class="review-brand" href="../">SHIBUYA / AFTER LAST TRAIN</a>
+      <nav class="review-nav" aria-label="Review pages">
+        <a href="../fieldnotes/" aria-current="page">Field Notes</a>
+        <a href="../underground-live/">Underground Live</a>
+        <a href="../detail/">Detail</a>
+        <a href="../lineage/">Lineage</a>
+        <a href="../#night-session-20260619">Act 4</a>
+      </nav>
+    </header>
+
+    <nav class="mobile-route-nav" aria-label="Mobile review navigation">
+      <a href="../fieldnotes/" aria-current="page">Field</a>
+      <a href="../underground-live/">Live</a>
+      <a href="../detail/">Detail</a>
+      <a href="../lineage/">Lineage</a>
+    </nav>
+
+    <main class="review-main">
+      <section class="review-hero">
+        <p class="review-kicker">Final Review / Field Notes</p>
+        <h1>観察から介入へ進む<br class="mobile-break">ための調査記録。</h1>
+        <p>5/15、5/22、6/19、7/3-7/4を<br class="mobile-break">日付ごとのログとして分け、<br class="mobile-break">何を観察し、何を発見し、<br class="mobile-break">次の設計へどう変わったかを整理する。</p>
+      </section>
+
+      <section class="review-summary" aria-label="Field note summary">
+        <div>
+          <span class="review-stat">04</span>
+          <p>field sessions</p>
+        </div>
+        <div>
+          <span class="review-stat">V/A/P</span>
+          <p>facts are separated on the detail page</p>
+        </div>
+        <div>
+          <span class="review-stat">07.03</span>
+          <p>subway entrance experiment <br class="mobile-break">separated from encounter</p>
+        </div>
+      </section>
+
+      <section class="review-list" id="fieldnote-list" aria-live="polite"></section>
+    </main>
+
+    <script>
+      const assetPath = (src) => src && src.startsWith("assets/") ? "../" + src : src;
+      const list = document.querySelector("#fieldnote-list");
+
+      function item(tag, className, text) {
+        const node = document.createElement(tag);
+        if (className) node.className = className;
+        if (text != null) {
+          node.textContent = text;
+          addBreakHints(node);
+        }
+        return node;
+      }
+
+      function addBreakHints(node) {
+        const text = node.textContent || "";
+        if (!/[\u3040-\u30ff\u3400-\u9fff]/.test(text)) return;
+        const escaped = text.replace(/[&<>"]/g, (char) => ({
+          "&": "&amp;",
+          "<": "&lt;",
+          ">": "&gt;",
+          "\"": "&quot;"
+        })[char]);
+        node.innerHTML = escaped.replace(/([\u3040-\u30ff\u3400-\u9fff])/g, "$1<wbr>");
+      }
+
+      function render(entries) {
+        list.innerHTML = "";
+        entries.filter((entry) => entry.visible !== false).forEach((entry) => {
+          const article = item("article", "review-card fieldnote-card");
+
+          const head = item("div", "fieldnote-head");
+          head.append(item("span", "fieldnote-date", entry.date));
+          head.append(item("span", "fieldnote-status", entry.label || entry.status || "draft"));
+          article.append(head);
+
+          article.append(item("h2", "", entry.title_ja || entry.title));
+          article.append(item("p", "review-card-lead", entry.summary_ja || entry.summary));
+          if (entry.privacy_status || entry.consent_status || entry.privacy_note) {
+            const privacy = item("p", "fieldnote-privacy");
+            privacy.append(item("span", "", entry.privacy_status || entry.consent_status || "review_required"));
+            privacy.append(document.createTextNode(entry.privacy_note ? " / " + entry.privacy_note : ""));
+            article.append(privacy);
+          }
+          if (entry.body && entry.body.length) {
+            const story = item("div", "fieldnote-story");
+            entry.body.forEach((text) => story.append(item("p", "", text)));
+            article.append(story);
+          }
+
+          const body = item("div", "fieldnote-body");
+          const findings = item("ol", "review-number-list");
+          (entry.findings || []).forEach((finding) => {
+            const li = item("li", "", finding);
+            findings.append(li);
+          });
+          body.append(findings);
+
+          const aside = item("aside", "fieldnote-shift");
+          aside.append(item("span", "", "Design Shift"));
+          aside.append(item("p", "", entry.design_shift || ""));
+          if (entry.next_design && entry.next_design.length) {
+            const next = item("ul", "review-mini-list");
+            entry.next_design.forEach((text) => next.append(item("li", "", text)));
+            aside.append(next);
+          }
+          body.append(aside);
+          article.append(body);
+
+          if (entry.media && entry.media.length) {
+            const grid = item("div", "review-media-grid");
+            entry.media.forEach((media) => {
+              const fig = item("figure", "");
+              const img = item("img");
+              img.src = assetPath(media.src);
+              img.alt = media.caption || entry.title_ja || entry.title;
+              img.loading = "lazy";
+              fig.append(img);
+              fig.append(item("figcaption", "", media.caption || ""));
+              grid.append(fig);
+            });
+            article.append(grid);
+          }
+
+          list.append(article);
+        });
+      }
+
+      fetch("../data/fieldnotes.json", { cache: "no-store" })
+        .then((res) => {
+          if (!res.ok) throw new Error("HTTP " + res.status);
+          return res.json();
+        })
+        .then((data) => render(data.entries || []))
+        .catch(() => {
+          list.innerHTML = '<p class="review-load-error">Field Notes JSONを読み込めませんでした。localhostまたはGitHub Pagesで確認してください。</p>';
+        });
+    </script>
+  </body>
+</html>
