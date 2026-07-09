@@ -19,7 +19,10 @@ _backup_*/
 .claude/
 .gitconfig_codex
 .playwright-cli/
-output/
+output/*
+!output/a1-board/
+output/a1-board/*
+!output/a1-board/qfront_a1_print_edition.pdf
 .vscode/
 .idea/
 data/import_log.json

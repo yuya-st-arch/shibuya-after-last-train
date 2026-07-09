@@ -8,8 +8,8 @@
   /* ---------------- Fallback data ---------------- */
   const FALLBACK_CONTENT = {
     site: {
-      title: "SHIBUYA AFTER LAST TRAIN",
-      subtitle: "終電後の渋谷をリビング化する擬態的都市家具"
+      title: "終電後の渋谷｜観測者から介入者へ",
+      subtitle: "ばらばらなままに、ともにいる—渋谷の夜具"
     },
     concept: {
       panels: [
@@ -837,6 +837,67 @@
     reconcileWorksVisibility();
   }
 
+  /* ---------------- Render: Act 4 / Night Session (DRAFT) ---------------- */
+  function nsCell(photo, opts) {
+    opts = opts || {};
+    const src = (opts.useThumb && photo.web_path_thumb) ? photo.web_path_thumb : photo.web_path_selected;
+    const fig = el("figure", {});
+    const wrap = el("div", { class: "ns-cell-img" });
+    const img = document.createElement("img");
+    img.src = src;
+    img.alt = photo.title_ja || "";
+    img.loading = "lazy";
+    img.decoding = "async";
+    wrap.appendChild(img);
+    if (opts.seq) {
+      wrap.appendChild(el("span", { class: "ns-seq", text: opts.seq }));
+    }
+    fig.appendChild(wrap);
+    if (photo.caption_ja) fig.appendChild(el("figcaption", { text: photo.caption_ja }));
+    return fig;
+  }
+
+  async function renderNightSession() {
+    const sec = document.getElementById("night-session-20260619");
+    if (!sec) return;
+    const data = await loadJSON("assets/field/2026-06-19-night-session/photo_manifest.json", null);
+    const photos = data && data.photos ? data.photos : [];
+    if (!photos.length) { sec.style.display = "none"; return; }
+
+    const bySection = s => photos.filter(p => p.section === s);
+
+    // hero (main)
+    const heroMedia = $("#ns-hero-media");
+    const main = photos.find(p => p.main_hero) || photos.find(p => p.hero) || photos[0];
+    if (heroMedia && main) {
+      const img = document.createElement("img");
+      img.src = main.web_path_hero || main.web_path_selected;
+      img.alt = main.title_ja || "Night Session";
+      heroMedia.appendChild(img);
+    }
+
+    // site (first cell spans 2 via CSS)
+    const siteRoot = $("#ns-site-grid");
+    if (siteRoot) bySection("site").forEach(p => siteRoot.appendChild(nsCell(p)));
+
+    // encounter
+    const encRoot = $("#ns-encounter-grid");
+    if (encRoot) bySection("encounter").forEach(p => encRoot.appendChild(nsCell(p)));
+
+    // growth + community as a numbered progression
+    const growRoot = $("#ns-growth-grid");
+    if (growRoot) {
+      const arr = bySection("growth").concat(bySection("community"));
+      arr.forEach((p, i) => growRoot.appendChild(nsCell(p, { useThumb: true, seq: String(i + 1).padStart(2, "0") })));
+    }
+
+    // end (management)
+    const endRoot = $("#ns-end-media");
+    if (endRoot) bySection("end").forEach(p => endRoot.appendChild(nsCell(p)));
+
+    observeReveals();
+  }
+
   /* ---------------- Render: drawings ---------------- */
   function renderDrawings(items) {
     const root = $("#drawing-grid");
@@ -1393,6 +1454,7 @@
     renderPrototypeEvidence(photos, content.hero || {});
     renderPrototypes(content.prototypes || FALLBACK_CONTENT.prototypes);
     renderWorks(works && works.works ? works : FALLBACK_WORKS);
+    renderNightSession();
     renderDrawings(content.drawings || FALLBACK_CONTENT.drawings);
     renderConclusion((content.conclusion && content.conclusion.body) || FALLBACK_CONTENT.conclusion.body);
 
