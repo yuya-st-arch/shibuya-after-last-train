@@ -3108,6 +3108,44 @@ body.presentation .classification .cls-detail { display: none; }
   font-size: inherit;
 }
 
+.home-lineage-photo {
+  position: relative;
+  min-height: 480px;
+  margin: 0;
+  overflow: hidden;
+  background: #111;
+}
+
+.home-lineage-photo img {
+  display: block;
+  width: 100%;
+  height: 480px;
+  margin: 0;
+  object-fit: cover;
+}
+
+.home-lineage-photo figcaption {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 12px 14px;
+  color: #fff;
+  background: linear-gradient(transparent, rgba(0, 0, 0, 0.82));
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+}
+
+.home-lineage-photo small {
+  color: #fff;
+  font-size: inherit;
+}
+
 @media (max-width: 768px) {
   .review-page-underground .review-hero p:last-child,
   .review-page-underground .review-card p,
@@ -3286,6 +3324,54 @@ body.presentation .classification .cls-detail { display: none; }
   padding: clamp(44px, 7vw, 96px) 0 0;
 }
 
+.home-downloads-intro,
+.home-a1-status {
+  display: grid;
+  align-content: start;
+  gap: 12px;
+}
+
+.home-a1-status {
+  margin-top: 10px;
+  padding: 18px;
+  border: 1px solid var(--final-line);
+  background: #fff;
+}
+
+.home-a1-status p {
+  margin: 0;
+  color: var(--final-soft);
+  font-size: 13px;
+  line-height: 1.65;
+}
+
+.home-a1-status .home-a1-label,
+.home-a1-status .home-a1-facts {
+  color: var(--final-ink);
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+}
+
+.home-a1-status .home-a1-facts {
+  color: var(--accent);
+}
+
+.home-downloads .home-a1-drive {
+  width: fit-content;
+  min-height: 0;
+  margin-top: 2px;
+  padding: 10px 12px;
+  border: 1px solid var(--accent);
+  color: var(--accent);
+}
+
+.home-downloads .home-a1-drive:hover {
+  color: #fff;
+  background: var(--accent);
+}
+
 .home-downloads nav {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -3320,12 +3406,17 @@ body.presentation .classification .cls-detail { display: none; }
 
   .home-chapter-media,
   .home-proposal-diagram,
-  .home-lineage-card {
+  .home-lineage-card,
+  .home-lineage-photo {
     min-height: 300px;
   }
 
   .home-chapter-media img {
     min-height: 300px;
+  }
+
+  .home-lineage-photo img {
+    height: 300px;
   }
 
   .home-chapter-copy {
