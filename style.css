@@ -3064,6 +3064,19 @@ body.presentation .classification .cls-detail { display: none; }
   margin: 0;
 }
 
+.home-more-content .home-more-kicker {
+  margin: 18px 0 8px;
+  color: var(--accent);
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+}
+
+.home-more-content .home-more-kicker + p {
+  margin-bottom: 10px;
+}
+
 .home-more-content ul {
   margin: 0;
   padding-left: 1.2em;
