@@ -3108,6 +3108,52 @@ body.presentation .classification .cls-detail { display: none; }
   font-size: inherit;
 }
 
+@media (max-width: 768px) {
+  .review-page-underground .review-hero p:last-child,
+  .review-page-underground .review-card p,
+  .review-page-underground .source-meta,
+  .review-page-underground .review-mini-list,
+  .review-page-underground .vap-legend-list dd {
+    word-break: normal !important;
+    overflow-wrap: anywhere;
+    line-break: auto;
+  }
+
+  .review-page-underground .underground-story-grid,
+  .review-page-underground .underground-hero-grid,
+  .review-page-underground .underground-gallery-grid,
+  .review-page-underground .day-night-pair,
+  .review-page-underground .vap-legend-list {
+    grid-template-columns: 1fr;
+  }
+
+  .review-page-underground .vap-legend-list dt {
+    justify-content: start;
+    padding: 0 10px;
+  }
+
+  .review-page-underground .source-meta {
+    display: none;
+  }
+
+  .review-page-underground img,
+  .review-page-underground svg,
+  .review-page-underground canvas,
+  .review-page-underground table {
+    max-width: 100%;
+    height: auto;
+  }
+
+  .review-page-underground .load-path-list {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
+  .review-page-underground .load-path-list li:not(:last-child)::after {
+    display: none;
+  }
+}
+
 .home-more-content ul {
   margin: 0;
   padding-left: 1.2em;
