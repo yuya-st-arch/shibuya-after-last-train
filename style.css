@@ -3077,6 +3077,37 @@ body.presentation .classification .cls-detail { display: none; }
   margin-bottom: 10px;
 }
 
+.lineage-image-card {
+  width: min(100%, 360px);
+  margin: 18px 0;
+  border: 1px solid var(--final-line);
+  background: #fff;
+}
+
+.lineage-image-card img {
+  display: block;
+  width: 100%;
+  margin: 0;
+  object-fit: cover;
+}
+
+.lineage-image-card figcaption {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 10px 12px;
+  color: var(--final-ink);
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+}
+
+.lineage-image-card small {
+  color: var(--accent);
+  font-size: inherit;
+}
+
 .home-more-content ul {
   margin: 0;
   padding-left: 1.2em;
